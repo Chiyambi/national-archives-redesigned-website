@@ -3,156 +3,221 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="National Archives of Malawi - trusted access to records, history, and documentary heritage for citizens, students, and researchers."
+  />
+  <meta name="theme-color" content="#153d2c" />
   <title>National Archives of Malawi</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Icons -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="archives-styles.css">
-  <style>
-    .rules-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 14px 40px;
-      background: linear-gradient(135deg, #1f4d2b, #163a22);
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .rules-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(31, 77, 43, 0.3);
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="archives-styles.css" />
 </head>
 <body>
+  <header class="top-header">
+    <div class="container header-content">
+      <div class="branding">
+        <img src="emblem.jpg" alt="National Emblem of Malawi" />
+        <div>
+          <span class="eyebrow">Government of Malawi</span>
+          <h1>National Archives of Malawi</h1>
+          <p>Protecting records, history, and public memory.</p>
+        </div>
+      </div>
 
-<!-- Top Header -->
-<header class="top-header">
-  <div class="container header-content">
-    <div class="branding">
-      <img src="emblem.jpg" alt="Malawi Emblem">
-      <div>
-        <h1>National Archives of Malawi</h1>
+      <div class="header-meta">
+        <div class="meta-pill">
+          <i class="fas fa-location-dot"></i>
+          <span>Zomba, Malawi</span>
+        </div>
+        <div class="meta-pill">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:archives@sdnp.org.mw">archives@sdnp.org.mw</a>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- Navigation -->
-  <nav class="main-nav">
+
+    <nav class="main-nav">
+      <div class="container">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="overview.html">Overview</a>
+        <a href="information.html">Information</a>
+        <a href="application.html">Apply for Access</a>
+        <a href="rules.html">Guidelines</a>
+        <a href="laws.html">Legislation</a>
+        <a href="staff.html">Contact</a>
+        <a href="biblio_preface.html">Resources</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="hero-archives">
+        <div class="hero-overlay"></div>
+        <div class="hero-pattern" aria-hidden="true"></div>
+
+        <div class="hero-content container hero-grid">
+          <div class="hero-copy">
+            <span class="section-tag">National Archives</span>
+            <h2>Malawi's records kept secure, clear, and ready for research.</h2>
+            <p>
+              Official archival access with the confidence of a trusted national institution.
+            </p>
+
+            <div class="hero-cta">
+              <a href="application.html" class="btn btn-primary">
+                <i class="fas fa-file-signature"></i>
+                Request Access
+              </a>
+              <a href="rules.html" class="btn btn-secondary">
+                <i class="fas fa-book"></i>
+                Visitor Guidelines
+              </a>
+            </div>
+          </div>
+
+          <aside class="hero-panel">
+            <div class="hero-stat-card">
+              <span class="stat-label">Fast Start</span>
+              <strong>Simple process, clear steps</strong>
+              <p>Review requirements and begin your archive request in minutes.</p>
+              <a href="application.html">Apply now</a>
+            </div>
+
+            <div class="hero-stat-row">
+              <div>
+                <span class="stat-number">Records</span>
+                <span class="stat-text">Archival documents for research and public use</span>
+              </div>
+              <div>
+                <span class="stat-number">Support</span>
+                <span class="stat-text">Guided assistance from archive staff</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="announcement announcement-modern">
+      <div class="container announcement-row">
+        <p><i class="fas fa-circle-info"></i> Start with a quick access request or review our archive rules.</p>
+        <a href="application.html">Begin your request</a>
+      </div>
+    </section>
+
+    <section class="services-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-tag">What We Offer</span>
+          <h2>Clear archive services for research, records, and heritage.</h2>
+        </div>
+
+        <div class="services-grid">
+          <article class="feature-card">
+            <div class="feature-icon"><i class="fas fa-search"></i></div>
+            <h3>Research Access</h3>
+            <p>Visit our search room and use trusted records with staff support.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon"><i class="fas fa-folder-open"></i></div>
+            <h3>Document Requests</h3>
+            <p>Request official materials quickly with a guided application.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon"><i class="fas fa-book"></i></div>
+            <h3>Reference Help</h3>
+            <p>Find the right records and archival information faster.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container cta-band-inner">
+        <div>
+          <span class="section-tag">Start Today</span>
+          <h2>Reach the archives with confidence.</h2>
+          <p>Submit an access request or contact our team for quick guidance.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="application.html" class="btn btn-primary">Apply for Access</a>
+          <a href="staff.html" class="btn btn-outline-light">Contact the Archive</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
     <div class="container">
-      <a href="overview.html">Overview</a>
-      <a href="biblio_preface.html">Preface</a>
-      <a href="laws.html">Laws</a>
-      <a href="rules.html">Rules</a>
-      <a href="information.html">Information</a>
-      <a href="application.html">Application</a>
-      <a href="biblio-contents.html">Bibliography</a>
-      <a href="staff.html">Contacts</a>
-      <a href="../index.html">Home</a>
-    </div>
-  </nav>
-</header>
-
-<!-- Hero Section -->
-<section class="hero-section">
-  <div class="hero-archives">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <p>Preserving the country's memory</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- Announcement Banner -->
-<section class="announcement">
-  <div class="container">
-    <p>National Archives of Malawi — Safeguarding the Nation’s Memory</p>
-  </div>
-</section>
-
-<!-- Welcome Section -->
-<section class="welcome">
-  <div class="container">
-    <h2>Welcome to the National Archives of Malawi</h2>
-    <p>
-      The National Archives of Malawi is the official custodian of the nation’s public and private records of enduring value. We preserve, organize, and make accessible records that document Malawi’s history, governance, culture, and heritage for present and future generations.
-    </p>
-  </div>
-</section>
-<!-- Quick Access to Rules Section -->
-<section class="welcome">
-  <div class="container">
-    <h2>Search Room Guidelines</h2>
-    <p>
-      To ensure a productive and respectful research environment, all visitors to our Search Room must familiarize themselves with our guidelines and regulations.
-    </p>
-    <a href="rules.html" class="rules-button">View Full Rules & Guidelines</a>
-  </div>
-</section>
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-section">
-      <h3><i class="fas fa-archive"></i> About</h3>
-      <p style="color:#e5e7eb; font-size:0.95rem; line-height:1.7;">The National Archives of Malawi preserves and provides access to the nation's documentary heritage, safeguarding records of historical, administrative, and cultural significance.</p>
-    </div>
-
-    <div class="footer-section">
-      <h3><i class="fas fa-link"></i> Quick Links</h3>
-      <ul>
-        <li><a href="overview.html"><i class="fas fa-arrow-right"></i> Overview</a></li>
-        <li><a href="information.html"><i class="fas fa-arrow-right"></i> Information</a></li>
-        <li><a href="application.html"><i class="fas fa-arrow-right"></i> Apply for Access</a></li>
-        <li><a href="search.html"><i class="fas fa-arrow-right"></i> Search Room Rules</a></li>
-        <li><a href="staff.html"><i class="fas fa-arrow-right"></i> Contact Us</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-section">
-      <h3><i class="fas fa-book"></i> Resources</h3>
-      <ul>
-        <li><a href="biblio_preface.html"><i class="fas fa-arrow-right"></i> Bibliography Preface</a></li>
-        <li><a href="biblio-contents.html"><i class="fas fa-arrow-right"></i> Bibliography Contents</a></li>
-        <li><a href="laws.html"><i class="fas fa-arrow-right"></i> Legislation</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-section">
-      <h3><i class="fas fa-phone"></i> Contact</h3>
-      <div class="footer-contact-item">
-        <i class="fas fa-map-marker-alt"></i>
-        <span>P.O. Box 62<br>Zomba, Malawi</span>
+      <div class="footer-section">
+        <h3><i class="fas fa-archive"></i> About Us</h3>
+        <p>
+          The National Archives of Malawi preserves and provides access to records of
+          historical, administrative, and cultural significance for the benefit of the nation.
+        </p>
       </div>
-      <div class="footer-contact-item">
-        <i class="fas fa-phone"></i>
-        <span>+265 525 240<br>+265 524 148</span>
+
+      <div class="footer-section">
+        <h3><i class="fas fa-link"></i> Quick Links</h3>
+        <ul>
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="information.html">Information</a></li>
+          <li><a href="application.html">Apply for Access</a></li>
+          <li><a href="rules.html">Search Room Rules</a></li>
+          <li><a href="staff.html">Contact Us</a></li>
+        </ul>
       </div>
-      <div class="footer-contact-item">
-        <i class="fas fa-envelope"></i>
-        <a href="mailto:archives@sdnp.org.mw">archives@sdnp.org.mw</a>
+
+      <div class="footer-section">
+        <h3><i class="fas fa-book"></i> Resources</h3>
+        <ul>
+          <li><a href="biblio_preface.html">Bibliography Preface</a></li>
+          <li><a href="biblio-contents.html">Collections</a></li>
+          <li><a href="laws.html">Legislation</a></li>
+          <li><a href="search.html">Search Guides</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3><i class="fas fa-headset"></i> Contact Info</h3>
+        <div class="footer-contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>P.O. Box 62<br />Zomba, Malawi</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+265 525 240<br />+265 524 148</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-envelope"></i>
+          <span><a href="mailto:archives@sdnp.org.mw">archives@sdnp.org.mw</a></span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="footer-divider"></div>
+    <div class="footer-divider"></div>
 
-  <div class="footer-bottom">
-    <p style="margin:0;">© 2025 National Archives of Malawi. All Rights Reserved.</p>
-    <div style="display:flex; gap:20px;">
-      <a href="#"><i class="fas fa-facebook"></i></a>
-      <a href="#"><i class="fas fa-twitter"></i></a>
-      <a href="#"><i class="fas fa-linkedin"></i></a>
+    <div class="container footer-bottom">
+      <p style="margin:0;"><span class="footer-logo">NAM</span> Copyright 2026 National Archives of Malawi. All rights reserved.</p>
+      <div>
+        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
     </div>
-  </div>
-</footer>
-
+  </footer>
 </body>
 </html>
