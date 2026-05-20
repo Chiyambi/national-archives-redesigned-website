@@ -16,15 +16,16 @@
   <style>
     /* Application Form Styles */
     .application-container {
-      max-width:1000px;
+      width:100%;
+      max-width:1100px;
       margin:60px auto;
-      padding:0 40px;
+      padding:0 30px;
     }
 
     .form-header {
       background:var(--white);
-      padding:50px;
-      margin-bottom:40px;
+      padding:36px;
+      margin-bottom:32px;
       border-radius:12px;
       box-shadow:0 4px 16px rgba(0,0,0,0.08);
       border-left:6px solid var(--accent);
@@ -46,7 +47,7 @@
 
     .form-section {
       background:var(--white);
-      padding:40px;
+      padding:32px;
       margin-bottom:30px;
       border-radius:12px;
       box-shadow:0 4px 16px rgba(0,0,0,0.08);
@@ -57,7 +58,7 @@
       color:var(--primary);
       font-size:1.5rem;
       margin-top:0;
-      margin-bottom:30px;
+      margin-bottom:26px;
       font-weight:800;
       display:flex;
       align-items:center;
@@ -65,7 +66,7 @@
     }
 
     .form-group {
-      margin-bottom:25px;
+      margin-bottom:22px;
     }
 
     .form-group:last-child {
@@ -74,9 +75,9 @@
 
     .form-row {
       display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:25px;
-      margin-bottom:25px;
+      grid-template-columns:repeat(2,minmax(260px,1fr));
+      gap:22px;
+      margin-bottom:22px;
     }
 
     .form-row.full {
@@ -328,9 +329,9 @@
       <a href="index.html">Home</a>
     </div>
   </nav>
+</header>
+
 <main>
-</header>
-</header>
 
 <!-- Announcement Banner -->
 <section class="announcement">
