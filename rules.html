@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Room Rules - National Archives of Malawi</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="archives-styles.css">
+  <style>
+    /* Rules Page Specific Styles */
+    .rules-container {
+      max-width:1000px;
+      margin:60px auto;
+      padding:0 40px;
+    }
+
+    .rules-header {
+      background:var(--white);
+      padding:50px;
+      margin-bottom:40px;
+      border-radius:12px;
+      box-shadow:0 4px 16px rgba(0,0,0,0.08);
+      border-left:6px solid var(--accent);
+      text-align:center;
+    }
+
+    .rules-header h2 {
+      color:var(--primary);
+      font-size:2.4rem;
+      margin:0 0 20px 0;
+      font-weight:800;
+    }
+
+    .rules-header p {
+      color:var(--muted);
+      font-size:1.1rem;
+      margin:0;
+    }
+
+    .intro-box {
+      background:linear-gradient(135deg,rgba(212,175,55,0.15),rgba(31,77,43,0.05));
+      padding:30px;
+      border-radius:10px;
+      border:2px solid var(--accent);
+      margin-bottom:40px;
+    }
+
+    .intro-box p {
+      color:var(--dark);
+      line-height:1.9;
+      font-size:1.05rem;
+      margin:0;
+      text-align:justify;
+    }
+
+    .rules-list {
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .rule-item {
+      background:var(--white);
+      padding:30px;
+      margin-bottom:20px;
+      border-radius:12px;
+      box-shadow:0 4px 16px rgba(0,0,0,0.08);
+      border-left:6px solid var(--accent);
+      display:flex;
+      gap:25px;
+    }
+
+    .rule-number {
+      flex-shrink:0;
+      width:50px;
+      height:50px;
+      background:linear-gradient(135deg,var(--primary),#163a22);
+      color:var(--white);
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      font-size:1.2rem;
+    }
+
+    .rule-content {
+      flex:1;
+    }
+
+    .rule-content p {
+      color:var(--dark);
+      line-height:1.9;
+      font-size:1.05rem;
+      margin:0;
+      text-align:justify;
+    }
+
+    .rule-category {
+      display:inline-block;
+      background:rgba(212,175,55,0.2);
+      color:var(--secondary);
+      padding:4px 12px;
+      border-radius:20px;
+      font-size:0.85rem;
+      font-weight:600;
+      margin-bottom:10px;
+    }
+
+    .important-rule {
+      border-left-color:#d4534a !important;
+      background:linear-gradient(135deg,rgba(212,83,74,0.05),var(--white));
+    }
+
+    .important-rule .rule-number {
+      background:linear-gradient(135deg,#d4534a,#a83a32);
+    }
+
+    .important-note {
+      background:linear-gradient(135deg,rgba(212,83,74,0.1),rgba(212,83,74,0.05));
+      border-left:6px solid #d4534a;
+      padding:25px;
+      border-radius:10px;
+      margin-top:40px;
+    }
+
+    .important-note p {
+      color:var(--dark);
+      margin:0;
+      font-weight:600;
+      line-height:1.8;
+    }
+
+    .highlight-box {
+      background:linear-gradient(135deg,rgba(212,175,55,0.1),rgba(31,77,43,0.05));
+      padding:30px;
+      border-radius:10px;
+      border-left:5px solid var(--accent);
+      margin:30px 0;
+    }
+
+    .highlight-box h3 {
+      color:var(--primary);
+      margin-top:0;
+      font-weight:700;
+    }
+
+    .highlight-box p {
+      color:var(--dark);
+      margin-bottom:10px;
+      line-height:1.8;
+    }
+
+    .highlight-box p:last-child {
+      margin-bottom:0;
+    }
+
+    .hours-info {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin:20px 0;
+    }
+
+    .hours-card {
+      background:var(--light);
+      padding:20px;
+      border-radius:10px;
+      border-left:4px solid var(--accent);
+    }
+
+    .hours-card h4 {
+      color:var(--primary);
+      margin:0 0 10px 0;
+      font-weight:700;
+    }
+
+    .hours-card p {
+      color:var(--dark);
+      margin:0;
+      font-size:1rem;
+    }
+
+    .facility-tips {
+      background:var(--white);
+      padding:30px;
+      border-radius:12px;
+      box-shadow:0 4px 16px rgba(0,0,0,0.08);
+      border-left:6px solid var(--secondary);
+      margin:30px 0;
+    }
+
+    .facility-tips h3 {
+      color:var(--primary);
+      margin-top:0;
+      font-weight:700;
+    }
+
+    .facility-tips ul {
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .facility-tips li {
+      padding:12px 0;
+      padding-left:30px;
+      position:relative;
+      color:var(--dark);
+      line-height:1.8;
+    }
+
+    .facility-tips li:before {
+      content:"→";
+      position:absolute;
+      left:0;
+      color:var(--secondary);
+      font-weight:bold;
+    }
+
+    @media(max-width:768px) {
+      .rules-container {
+        padding:0 20px;
+        margin:40px auto;
+      }
+
+      .rule-item {
+        flex-direction:column;
+        gap:15px;
+      }
+
+      .hours-info {
+        grid-template-columns:1fr;
+      }
+
+      .rule-content p {
+        text-align:left;
+      }
+
+      .intro-box p {
+        text-align:left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Header -->
+<header class="top-header">
+  <div class="container header-content">
+    <div class="branding">
+      <img src="emblem.jpg" alt="Malawi Emblem">
+      <div>
+        <h1>National Archives of Malawi</h1>
+      </div>
+    </div>
+  </div>
+  <!-- Navigation -->
+  <nav class="main-nav" aria-label="Primary navigation">
+    <div class="container nav-list">
+      <a href="overview.html">Overview</a>
+      <a href="biblio_preface.html">Preface</a>
+      <a href="laws.html">Laws</a>
+      <a href="rules.html">Rules</a>
+      <a href="information.html">Information</a>
+      <a href="application.html">Application</a>
+      <a href="biblio-contents.html">Bibliography</a>
+      <a href="staff.html">Contacts</a>
+      <a href="index.html">Home</a>
+    </div>
+  </nav>
+<main>
+</header>
+</header>
+
+<!-- Announcement Banner -->
+<section class="announcement">
+  <div class="container">
+    <p>National Archives of Malawi — Safeguarding the Nation's Memory</p>
+  </div>
+</section>
+
+<!-- Rules Content -->
+<div class="rules-container">
+
+  <!-- Header Section -->
+  <section class="rules-header">
+    <h2><i class="fas fa-book-reader"></i> Search Room Rules</h2>
+    <p>Essential guidelines to ensure a productive and respectful research environment</p>
+  </section>
+
+  <!-- Introduction -->
+  <div class="intro-box">
+    <p>The Search Room is a dedicated research facility for scholars, students, and researchers seeking access to the National Archives' collections. These rules have been established to protect our invaluable documents, ensure equal access for all researchers, and maintain a conducive environment for scholarly work. All users of the Search Room are required to comply with these regulations.</p>
+  </div>
+
+  <!-- Operating Hours -->
+  <div class="highlight-box">
+    <h3><i class="fas fa-clock"></i> Operating Hours</h3>
+    <div class="hours-info">
+      <div class="hours-card">
+        <h4>Monday to Friday</h4>
+        <p><strong>8:00 AM - 11:45 AM</strong><br>1:00 PM - Closing</p>
+      </div>
+      <div class="hours-card">
+        <h4>Saturday (By Request)</h4>
+        <p><strong>8:00 AM - 11:30 AM</strong></p>
+      </div>
+    </div>
+    <p style="margin:15px 0 0 0; font-size:0.95rem; color:var(--muted);"><em>Closed on Sundays and public holidays</em></p>
+  </div>
+
+  <!-- Rules List -->
+  <ol class="rules-list">
+    <li class="rule-item">
+      <div class="rule-number">1</div>
+      <div class="rule-content">
+        <div class="rule-category">Admission</div>
+        <p>On first admission, all researchers are required to sign a declaration with the National Archives. This declaration indicates your acceptance of and agreement to abide by these Search Room rules and regulations.</p>
+      </div>
+    </li>
+
+    <li class="rule-item">
+      <div class="rule-number">2</div>
+      <div class="rule-content">
+        <div class="rule-category">Registration</div>
+        <p>All researchers must sign the visitors' book indicating their names and full addresses each day they come to use the Search Room. This helps us maintain accurate records of facility usage.</p>
+      </div>
+    </li>
+
+    <li class="rule-item">
+      <div class="rule-number">3</div>
+      <div class="rule-content">
+        <div class="rule-category">Personal Items</div>
+        <p>Umbrellas, briefcases, bundles, and bags are not allowed in the Search Room. These must be left at the Reception Desk. Small ladies' bags may be allowed at the discretion of the Search Room Attendant.</p>
+      </div>
+    </li>
+
+    <li class="rule-item">
+      <div class="rule-number">4</div>
+      <div class="rule-content">
+        <div class="rule-category">Research Aids</div>
+        <p>All aids (inventories, catalogues, lists, guides, indexes, etc.) in the Search Room are available to researchers without restrictions. These materials will assist you in locating the documents you need.</p>
+      </div>
+    </li>
+
+    <li class="rule-item">
+      <div class="rule-number">5</div>
+      <div class="rule-content">
+        <div class="rule-category">Repository Access</div>
+        <p>Researchers are not allowed into repositories unless special permission has been granted. Document request procedures ensure proper handling and organization of our collections.</p>
+      </div>
+    </li>
+
+    <li class="rule-item">
+      <div class="rule-number">6</div>
+      <div class="rule-content">
+        <div class="rule-category">Document Requests</div>
+        <p>A duplicate document request form must be completed for each item required and placed in the designated box in the Search Room. This ensures proper tracking and retrieval of documents.</p>
+      </div>
+    </li>
+
+    <li class="rule-item">
+      <div class="rule-number">7</div>
+      <div class="rule-content">
+        <div class="rule-category">Consultation Limits</div>
+        <p>Researchers may consult three items at a time, although up to twelve may be ordered. The Search Room Attendant may withhold any document from production at their discretion to ensure proper care and handling.</p>
+      </div>
+    </li>
+
+    <li class="rule-item">
+      <div class="rule-number">8</div>
+      <div class="rule-content">
+        <div class="rule-category">Document Removal</div>
+        <p>No item or document may be removed from the Search Room, and items requested are not transferable. Researchers are not allowed to use other persons to browse through files or documents on their behalf.</p>
+      </div>
+    </li>
+
+    <li class="rule-item">
+      <div class="rule-number">9</div>
+      <div class="rule-content">
+        <div class="rule-category">Document Return</div>
+        <p>All documents must be returned to the Search Room Attendant who will check them and verify they have been returned in good condition and are the correct items before the researcher is allowed to leave.</p>
+      </div>
+    </li>
+
+    <li class="rule-item">
+      <div class="rule-number">10</div>
+      <div class="rule-content">
+        <div class="rule-category">Writing Materials</div>
+        <p>The use of ink, ball-pens, and felt pens is not allowed. Only pencils may be used. Typewriters and tape recorders may not be used in the Search Room, though a designated room for such equipment may be provided elsewhere in the building.</p>
+      </div>
+    </li>
+
+    <li class="rule-item">
+      <div class="rule-number">11</div>
+      <div class="rule-content">
+        <div class="rule-category">Document Handling</div>
+        <p>All documents must be used with care. No marking or dog-earing is allowed. Do not lean or rest on papers, notebooks, or any other writing materials on a document you are reading. Tracing may be carried out only with Search Room Attendant permission using transparent paper only.</p>
+      </div>
+    </li>
+
+    <li class="rule-item">
+      <div class="rule-number">12</div>
+      <div class="rule-content">
+        <div class="rule-category">Conduct</div>
+        <p>Smoking is not allowed in the Search Room. Researchers may eat, drink, and smoke in the Reception area. Silence in the Search Room must be observed—no noise in and around the Search Room is permitted.</p>
+      </div>
+    </li>
+
+    <li class="rule-item">
+      <div class="rule-number">13</div>
+      <div class="rule-content">
+        <div class="rule-category">Copying & Photography</div>
+        <p>Permission to photocopy, photograph, or scan any document, map, or picture must first be obtained from the Director. Photocopying facilities are available on the premises at a small fee as determined from time to time.</p>
+      </div>
+    </li>
+
+    <li class="rule-item">
+      <div class="rule-number">14</div>
+      <div class="rule-content">
+        <div class="rule-category">Closing Time Policy</div>
+        <p>No documents will be produced or photocopies made within half an hour prior to closing time. This allows time for proper document processing and return procedures.</p>
+      </div>
+    </li>
+
+    <li class="rule-item">
+      <div class="rule-number">15</div>
+      <div class="rule-content">
+        <div class="rule-category">Weekend Requests</div>
+        <p>Documents required for Saturday morning must be ordered by 3:00 PM on Friday. Only 12 items may be ordered for weekend research sessions.</p>
+      </div>
+    </li>
+
+    <li class="rule-item important-rule">
+      <div class="rule-number">16</div>
+      <div class="rule-content">
+        <div class="rule-category" style="background:#d4534a; color:var(--white);">Important</div>
+        <p>Any researcher who wishes to publish a work resulting from consultation of documents in the National Archives of Malawi must first obtain pre-publication approval from the Government.</p>
+      </div>
+    </li>
+
+    <li class="rule-item important-rule">
+      <div class="rule-number">17</div>
+      <div class="rule-content">
+        <div class="rule-category" style="background:#d4534a; color:var(--white);">Authority</div>
+        <p>The Director of the National Archives of Malawi reserves the right to withhold permission to consult any or all documents and is empowered to exclude from the National Archives any researcher who does not comply with these regulations.</p>
+      </div>
+    </li>
+  </ol>
+
+  <!-- Important Note -->
+  <div class="important-note">
+    <p><i class="fas fa-exclamation-circle"></i> Important Reminder: These rules exist to protect our invaluable historical documents for current and future generations. Your cooperation ensures the preservation of Malawi's documentary heritage.</p>
+  </div>
+
+  <!-- Facilities Section -->
+  <div class="facility-tips">
+    <h3><i class="fas fa-lightbulb"></i> Tips for a Productive Research Visit</h3>
+    <ul>
+      <li><strong>Plan Ahead:</strong> Consult catalogues and guides before visiting to identify the documents you need</li>
+      <li><strong>Prepare Documents:</strong> Complete request forms in advance to expedite the document retrieval process</li>
+      <li><strong>Organize Notes:</strong> Use pencils to take notes directly from documents while in the Search Room</li>
+      <li><strong>Request Copies:</strong> If you need permanent copies, inquire about our photocopying services</li>
+      <li><strong>Seek Assistance:</strong> Don't hesitate to ask the Search Room staff for guidance in locating materials</li>
+      <li><strong>Respect Collections:</strong> Handle all materials with care to help preserve them for future researchers</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- Footer -->
+</main>
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-section">
+      <h3><i class="fas fa-archive"></i> About</h3>
+      <p>The National Archives of Malawi preserves and provides access to the nation's documentary heritage, safeguarding records of historical, administrative, and cultural significance.</p>
+    </div>
+
+    <div class="footer-section">
+      <h3><i class="fas fa-link"></i> Quick Links</h3>
+      <ul>
+        <li><a href="overview.html"><i class="fas fa-arrow-right"></i> Overview</a></li>
+        <li><a href="information.html"><i class="fas fa-arrow-right"></i> Information</a></li>
+        <li><a href="application.html"><i class="fas fa-arrow-right"></i> Apply for Access</a></li>
+        <li><a href="search.html"><i class="fas fa-arrow-right"></i> Search Room Rules</a></li>
+        <li><a href="staff.html"><i class="fas fa-arrow-right"></i> Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3><i class="fas fa-book"></i> Resources</h3>
+      <ul>
+        <li><a href="biblio_preface.html"><i class="fas fa-arrow-right"></i> Bibliography Preface</a></li>
+        <li><a href="biblio-contents.html"><i class="fas fa-arrow-right"></i> Bibliography Contents</a></li>
+        <li><a href="laws.html"><i class="fas fa-arrow-right"></i> Legislation</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3><i class="fas fa-phone"></i> Contact</h3>
+      <div class="footer-contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>P.O. Box 62<br>Zomba, Malawi</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-phone"></i>
+        <span>+265 525 240<br>+265 524 148</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:archives@sdnp.org.mw">archives@sdnp.org.mw</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <div class="footer-bottom">
+    <p>© 2025 National Archives of Malawi. All Rights Reserved.</p>
+    <div class="social-links">
+      <a href="#"><i class="fas fa-facebook"></i></a>
+      <a href="#"><i class="fas fa-twitter"></i></a>
+      <a href="#"><i class="fas fa-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

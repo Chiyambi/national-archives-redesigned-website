@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Staff & Contacts - National Archives of Malawi</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="archives-styles.css">
+  <style>
+    /* Staff & Contacts Page Styles */
+    .staff-container {
+      max-width:1000px;
+      margin:60px auto;
+      padding:0 40px;
+    }
+
+    .contacts-header {
+      background:var(--white);
+      padding:50px;
+      margin-bottom:40px;
+      border-radius:12px;
+      box-shadow:0 4px 16px rgba(0,0,0,0.08);
+      border-left:6px solid var(--accent);
+      text-align:center;
+    }
+
+    .contacts-header h2 {
+      color:var(--primary);
+      font-size:2.4rem;
+      margin:0 0 15px 0;
+      font-weight:800;
+    }
+
+    .contacts-header p {
+      color:var(--muted);
+      font-size:1.05rem;
+      margin:0;
+    }
+
+    .contact-card {
+      background:linear-gradient(135deg,var(--white),rgba(212,175,55,0.02));
+      border:2px solid var(--accent);
+      padding:40px;
+      margin-bottom:40px;
+      border-radius:12px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.1);
+      text-align:center;
+    }
+
+    .contact-card h3 {
+      color:var(--primary);
+      font-size:1.8rem;
+      margin:0 0 30px 0;
+      font-weight:800;
+    }
+
+    .contact-info {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+      margin-bottom:40px;
+    }
+
+    .contact-item {
+      text-align:center;
+      padding:20px;
+      background:var(--light);
+      border-radius:10px;
+      border-left:4px solid var(--accent);
+    }
+
+    .contact-item-icon {
+      font-size:2.2rem;
+      color:var(--primary);
+      margin-bottom:15px;
+    }
+
+    .contact-item-label {
+      color:var(--muted);
+      font-size:0.9rem;
+      font-weight:600;
+      margin-bottom:8px;
+      text-transform:uppercase;
+      letter-spacing:0.5px;
+    }
+
+    .contact-item-value {
+      color:var(--dark);
+      font-weight:600;
+      font-size:1rem;
+      line-height:1.6;
+    }
+
+    .contact-item-value a {
+      color:var(--primary);
+      text-decoration:none;
+      transition:color 0.3s ease;
+    }
+
+    .contact-item-value a:hover {
+      color:var(--accent);
+      text-decoration:underline;
+    }
+
+    .contact-divider {
+      width:100px;
+      height:3px;
+      background:linear-gradient(90deg,transparent,var(--accent),transparent);
+      margin:30px auto;
+    }
+
+    .contact-person-section {
+      background:linear-gradient(135deg,rgba(31,77,43,0.08),rgba(212,175,55,0.08));
+      padding:30px;
+      border-radius:10px;
+      border-left:5px solid var(--accent);
+      text-align:center;
+    }
+
+    .contact-person-title {
+      color:var(--secondary);
+      font-size:0.9rem;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:0.5px;
+      margin-bottom:10px;
+    }
+
+    .contact-person-name {
+      color:var(--primary);
+      font-size:1.5rem;
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .contact-person-position {
+      color:var(--muted);
+      font-size:1rem;
+      font-weight:600;
+    }
+
+    .staff-section {
+      background:var(--white);
+      padding:40px;
+      margin-bottom:30px;
+      border-radius:12px;
+      box-shadow:0 4px 16px rgba(0,0,0,0.08);
+      border-left:6px solid var(--accent);
+    }
+
+    .staff-section h3 {
+      color:var(--primary);
+      font-size:1.5rem;
+      margin-top:0;
+      margin-bottom:25px;
+      font-weight:800;
+    }
+
+    .staff-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .staff-member {
+      background:var(--light);
+      padding:20px;
+      border-radius:10px;
+      border-left:4px solid var(--accent);
+      text-align:center;
+    }
+
+    .staff-member-name {
+      color:var(--primary);
+      font-weight:800;
+      font-size:1.05rem;
+      margin-bottom:5px;
+    }
+
+    .staff-member-position {
+      color:var(--muted);
+      font-size:0.95rem;
+      font-weight:600;
+    }
+
+    .location-section {
+      background:linear-gradient(135deg,rgba(212,175,55,0.1),rgba(31,77,43,0.05));
+      padding:30px;
+      border-radius:10px;
+      border-left:5px solid var(--accent);
+      margin:30px 0;
+      text-align:center;
+    }
+
+    .location-section h4 {
+      color:var(--primary);
+      font-weight:800;
+      font-size:1.1rem;
+      margin-top:0;
+      margin-bottom:15px;
+    }
+
+    .location-section p {
+      color:var(--dark);
+      font-size:1rem;
+      line-height:1.8;
+      margin:0;
+    }
+
+    .hours-section {
+      background:var(--light);
+      padding:25px;
+      border-radius:10px;
+      border-left:4px solid var(--accent);
+      margin:20px 0;
+    }
+
+    .hours-section h5 {
+      color:var(--primary);
+      font-weight:800;
+      margin-top:0;
+      margin-bottom:15px;
+    }
+
+    .hours-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:15px;
+    }
+
+    .hour-item {
+      color:var(--dark);
+      font-size:0.95rem;
+      line-height:1.6;
+    }
+
+    .hour-item strong {
+      color:var(--primary);
+      display:block;
+    }
+
+    @media(max-width:768px) {
+      .staff-container {
+        padding:0 20px;
+        margin:40px auto;
+      }
+
+      .contact-card {
+        padding:25px;
+      }
+
+      .contacts-header h2 {
+        font-size:1.8rem;
+      }
+
+      .contact-info {
+        grid-template-columns:1fr;
+        gap:15px;
+      }
+
+      .staff-grid {
+        grid-template-columns:1fr;
+      }
+
+      .hours-grid {
+        grid-template-columns:1fr;
+      }
+
+      .contact-item {
+        padding:15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Header -->
+<header class="top-header">
+  <div class="container header-content">
+    <div class="branding">
+      <img src="emblem.jpg" alt="Malawi Emblem">
+      <div>
+        <h1>National Archives of Malawi</h1>
+      </div>
+    </div>
+  </div>
+  <!-- Navigation -->
+  <nav class="main-nav" aria-label="Primary navigation">
+    <div class="container nav-list">
+      <a href="overview.html">Overview</a>
+      <a href="biblio_preface.html">Preface</a>
+      <a href="laws.html">Laws</a>
+      <a href="rules.html">Rules</a>
+      <a href="information.html">Information</a>
+      <a href="application.html">Application</a>
+      <a href="biblio-contents.html">Bibliography</a>
+      <a href="staff.html">Contacts</a>
+      <a href="index.html">Home</a>
+    </div>
+  </nav>
+<main>
+</header>
+</header>
+
+<!-- Announcement Banner -->
+<section class="announcement">
+  <div class="container">
+    <p>National Archives of Malawi — Safeguarding the Nation's Memory</p>
+  </div>
+</section>
+
+<!-- Staff & Contacts Container -->
+<div class="staff-container">
+
+  <!-- Header Section -->
+  <section class="contacts-header">
+    <h2><i class="fas fa-address-book"></i> Staff & Contacts</h2>
+    <p>Get in touch with the National Archives of Malawi</p>
+  </section>
+
+  <!-- Main Contact Card -->
+  <section class="contact-card">
+    <h3><i class="fas fa-building"></i> National Archives of Malawi</h3>
+
+    <!-- Contact Information Grid -->
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="contact-item-label">Address</div>
+        <div class="contact-item-value">
+          National Archives of Malawi<br>
+          P.O. Box 62<br>
+          Zomba, Malawi
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <i class="fas fa-phone"></i>
+        </div>
+        <div class="contact-item-label">Telephone</div>
+        <div class="contact-item-value">
+          +265 525 240<br>
+          +265 524 148<br>
+          +265 524 184
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <i class="fas fa-fax"></i>
+        </div>
+        <div class="contact-item-label">Fax</div>
+        <div class="contact-item-value">
+          +265 524 148<br>
+          +265 525 362
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="contact-item-label">Email</div>
+        <div class="contact-item-value">
+          <a href="mailto:archives@sdnp.org.mw">archives@sdnp.org.mw</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-divider"></div>
+
+    <!-- Contact Person Section -->
+    <div class="contact-person-section">
+      <div class="contact-person-title">
+        <i class="fas fa-user-tie"></i> Contact Person
+      </div>
+      <div class="contact-person-name">O. W. Ambali</div>
+      <div class="contact-person-position">Acting Director</div>
+    </div>
+  </section>
+
+  <!-- Hours of Operation -->
+  <section class="staff-section">
+    <h3><i class="fas fa-clock"></i> Hours of Operation</h3>
+    
+    <div class="location-section">
+      <h4>National Archives Main Office</h4>
+      <p>Zomba, Malawi</p>
+    </div>
+
+    <div class="hours-section">
+      <h5><i class="fas fa-calendar-alt"></i> Regular Hours</h5>
+      <div class="hours-grid">
+        <div class="hour-item">
+          <strong>Monday - Friday</strong>
+          8:00 AM - 4:30 PM
+        </div>
+        <div class="hour-item">
+          <strong>Saturday</strong>
+          9:00 AM - 12:00 PM
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--light); padding:15px; border-radius:10px; border-left:4px solid var(--accent);">
+      <p style="color:var(--muted); font-size:0.9rem; margin:0;">
+        <i class="fas fa-info-circle"></i> Hours subject to change. Please contact us before visiting.
+      </p>
+    </div>
+  </section>
+
+  <!-- Leadership & Key Staff -->
+  <section class="staff-section">
+    <h3><i class="fas fa-users"></i> Leadership & Key Staff</h3>
+
+    <div class="staff-grid">
+      <div class="staff-member">
+        <div class="staff-member-name">O. W. Ambali</div>
+        <div class="staff-member-position">Acting Director & Librarian</div>
+      </div>
+
+      <div class="staff-member">
+        <div class="staff-member-name">Government Archivist</div>
+        <div class="staff-member-position">Records Management</div>
+      </div>
+
+      <div class="staff-member">
+        <div class="staff-member-name">Records Center Director</div>
+        <div class="staff-member-position">Central Records Management</div>
+      </div>
+
+      <div class="staff-member">
+        <div class="staff-member-name">Conservation Officer</div>
+        <div class="staff-member-position">Document Preservation</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divisions & Departments -->
+  <section class="staff-section">
+    <h3><i class="fas fa-sitemap"></i> Organizational Structure</h3>
+
+    <p style="color:var(--dark); line-height:1.8;">The National Archives of Malawi operates through several specialized divisions:</p>
+
+    <div class="staff-grid" style="margin-top:20px;">
+      <div class="staff-member">
+        <div class="staff-member-name"><i class="fas fa-warehouse"></i> Records Centers</div>
+        <div class="staff-member-position">Central repository for government records</div>
+      </div>
+
+      <div class="staff-member">
+        <div class="staff-member-name"><i class="fas fa-archive"></i> Public Archives</div>
+        <div class="staff-member-position">Historical and public access materials</div>
+      </div>
+
+      <div class="staff-member">
+        <div class="staff-member-name"><i class="fas fa-book"></i> Manuscripts</div>
+        <div class="staff-member-position">Rare and historical documents</div>
+      </div>
+
+      <div class="staff-member">
+        <div class="staff-member-name"><i class="fas fa-library"></i> Library</div>
+        <div class="staff-member-position">Reference collections and publications</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visitor Information -->
+  <section class="staff-section" style="background:linear-gradient(135deg,rgba(212,175,55,0.1),rgba(31,77,43,0.05)); border-left-color:var(--secondary);">
+    <h3><i class="fas fa-info-circle"></i> Visitor Information</h3>
+
+    <p style="color:var(--dark); line-height:1.8;">Before visiting the National Archives, please note:</p>
+
+    <ul style="color:var(--dark); line-height:1.8; font-size:1rem;">
+      <li><strong>Admission Required:</strong> Visitors must complete an <a href="application.html" style="color:var(--primary); font-weight:600;">application form</a> before accessing the search room</li>
+      <li><strong>Rules & Regulations:</strong> All visitors must comply with <a href="search.html" style="color:var(--primary); font-weight:600;">search room rules</a></li>
+      <li><strong>Advance Notice:</strong> For research involving specific collections, please contact us in advance</li>
+      <li><strong>Access Hours:</strong> Monday-Friday: 8:00 AM - 4:30 PM; Saturday: 9:00 AM - 12:00 PM</li>
+      <li><strong>Special Requests:</strong> Email us at <a href="mailto:archives@sdnp.org.mw" style="color:var(--primary); font-weight:600;">archives@sdnp.org.mw</a> for specialized inquiries</li>
+    </ul>
+  </section>
+
+</div>
+
+<!-- Footer -->
+</main>
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-section">
+      <h3><i class="fas fa-archive"></i> About</h3>
+      <p>The National Archives of Malawi preserves and provides access to the nation's documentary heritage, safeguarding records of historical, administrative, and cultural significance.</p>
+    </div>
+
+    <div class="footer-section">
+      <h3><i class="fas fa-link"></i> Quick Links</h3>
+      <ul>
+        <li><a href="overview.html"><i class="fas fa-arrow-right"></i> Overview</a></li>
+        <li><a href="information.html"><i class="fas fa-arrow-right"></i> Information</a></li>
+        <li><a href="application.html"><i class="fas fa-arrow-right"></i> Apply for Access</a></li>
+        <li><a href="search.html"><i class="fas fa-arrow-right"></i> Search Room Rules</a></li>
+        <li><a href="staff.html"><i class="fas fa-arrow-right"></i> Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3><i class="fas fa-book"></i> Resources</h3>
+      <ul>
+        <li><a href="biblio_preface.html"><i class="fas fa-arrow-right"></i> Bibliography Preface</a></li>
+        <li><a href="biblio-contents.html"><i class="fas fa-arrow-right"></i> Bibliography Contents</a></li>
+        <li><a href="laws.html"><i class="fas fa-arrow-right"></i> Legislation</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3><i class="fas fa-phone"></i> Contact</h3>
+      <div class="footer-contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>P.O. Box 62<br>Zomba, Malawi</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-phone"></i>
+        <span>+265 525 240<br>+265 524 148</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:archives@sdnp.org.mw">archives@sdnp.org.mw</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <div class="footer-bottom">
+    <p>© 2025 National Archives of Malawi. All Rights Reserved.</p>
+    <div class="social-links">
+      <a href="#"><i class="fas fa-facebook"></i></a>
+      <a href="#"><i class="fas fa-twitter"></i></a>
+      <a href="#"><i class="fas fa-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

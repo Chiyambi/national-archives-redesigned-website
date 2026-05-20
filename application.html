@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Application for Admission - National Archives of Malawi</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="archives-styles.css">
+  <style>
+    /* Application Form Styles */
+    .application-container {
+      max-width:1000px;
+      margin:60px auto;
+      padding:0 40px;
+    }
+
+    .form-header {
+      background:var(--white);
+      padding:50px;
+      margin-bottom:40px;
+      border-radius:12px;
+      box-shadow:0 4px 16px rgba(0,0,0,0.08);
+      border-left:6px solid var(--accent);
+      text-align:center;
+    }
+
+    .form-header h2 {
+      color:var(--primary);
+      font-size:2.2rem;
+      margin:0 0 15px 0;
+      font-weight:800;
+    }
+
+    .form-header p {
+      color:var(--muted);
+      font-size:1.05rem;
+      margin:0;
+    }
+
+    .form-section {
+      background:var(--white);
+      padding:40px;
+      margin-bottom:30px;
+      border-radius:12px;
+      box-shadow:0 4px 16px rgba(0,0,0,0.08);
+      border-left:6px solid var(--accent);
+    }
+
+    .form-section h3 {
+      color:var(--primary);
+      font-size:1.5rem;
+      margin-top:0;
+      margin-bottom:30px;
+      font-weight:800;
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .form-group {
+      margin-bottom:25px;
+    }
+
+    .form-group:last-child {
+      margin-bottom:0;
+    }
+
+    .form-row {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:25px;
+      margin-bottom:25px;
+    }
+
+    .form-row.full {
+      grid-template-columns:1fr;
+    }
+
+    label {
+      display:block;
+      color:var(--primary);
+      font-weight:600;
+      margin-bottom:10px;
+      font-size:0.95rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    textarea,
+    select {
+      width:100%;
+      padding:12px 15px;
+      border:2px solid #e0e0e0;
+      border-radius:8px;
+      font-family:inherit;
+      font-size:1rem;
+      color:var(--dark);
+      background:var(--light);
+      transition:all 0.3s ease;
+      box-sizing:border-box;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="date"]:focus,
+    textarea:focus,
+    select:focus {
+      outline:none;
+      border-color:var(--accent);
+      background:var(--white);
+      box-shadow:0 0 0 3px rgba(212,175,55,0.1);
+    }
+
+    textarea {
+      resize:vertical;
+      min-height:100px;
+    }
+
+    .form-instructions {
+      background:linear-gradient(135deg,rgba(31,77,43,0.05),rgba(212,175,55,0.05));
+      padding:20px;
+      border-left:4px solid var(--accent);
+      border-radius:8px;
+      color:var(--dark);
+      font-size:0.95rem;
+      line-height:1.6;
+      margin-bottom:30px;
+    }
+
+    .section-number {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,var(--primary),#163a22);
+      color:var(--white);
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      font-weight:700;
+      font-size:1.1rem;
+      flex-shrink:0;
+    }
+
+    .section-title-wrapper {
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .declaration-section {
+      background:linear-gradient(135deg,rgba(212,175,55,0.1),rgba(31,77,43,0.05));
+      border:2px solid var(--accent);
+      padding:35px;
+      border-radius:10px;
+      margin:30px 0;
+    }
+
+    .declaration-section h4 {
+      color:var(--primary);
+      font-size:1.3rem;
+      margin-top:0;
+      margin-bottom:25px;
+      font-weight:800;
+      border-bottom:3px solid var(--accent);
+      padding-bottom:12px;
+    }
+
+    .declaration-item {
+      margin-bottom:20px;
+      padding-bottom:20px;
+      border-bottom:1px solid rgba(212,175,55,0.3);
+    }
+
+    .declaration-item:last-child {
+      margin-bottom:0;
+      padding-bottom:0;
+      border-bottom:none;
+    }
+
+    .declaration-item strong {
+      color:var(--primary);
+      display:block;
+      margin-bottom:8px;
+    }
+
+    .declaration-item p {
+      color:var(--dark);
+      line-height:1.8;
+      margin:0;
+      text-align:justify;
+    }
+
+    .form-buttons {
+      display:flex;
+      gap:15px;
+      justify-content:center;
+      margin-top:30px;
+    }
+
+    button[type="submit"],
+    button[type="reset"] {
+      padding:14px 40px;
+      font-size:1rem;
+      font-weight:600;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      font-family:inherit;
+    }
+
+    button[type="submit"] {
+      background:linear-gradient(135deg,var(--primary),#163a22);
+      color:var(--white);
+      box-shadow:0 4px 12px rgba(31,77,43,0.3);
+    }
+
+    button[type="submit"]:hover {
+      transform:translateY(-2px);
+      box-shadow:0 6px 20px rgba(31,77,43,0.4);
+    }
+
+    button[type="submit"]:active {
+      transform:translateY(0);
+    }
+
+    button[type="reset"] {
+      background:var(--light);
+      color:var(--dark);
+      border:2px solid var(--muted);
+    }
+
+    button[type="reset"]:hover {
+      background:var(--white);
+      border-color:var(--accent);
+      color:var(--accent);
+    }
+
+    .required {
+      color:#d4534a;
+      font-weight:600;
+    }
+
+    .notice-box {
+      background:linear-gradient(135deg,rgba(212,85,74,0.1),rgba(212,85,74,0.05));
+      border-left:5px solid #d4534a;
+      padding:20px;
+      border-radius:8px;
+      margin:20px 0;
+      color:var(--dark);
+    }
+
+    .notice-box strong {
+      color:#d4534a;
+      display:block;
+      margin-bottom:8px;
+    }
+
+    @media(max-width:768px) {
+      .application-container {
+        padding:0 20px;
+        margin:40px auto;
+      }
+
+      .form-section {
+        padding:25px;
+      }
+
+      .form-header h2 {
+        font-size:1.6rem;
+      }
+
+      .form-row {
+        grid-template-columns:1fr;
+        gap:15px;
+      }
+
+      .form-buttons {
+        flex-direction:column;
+      }
+
+      button[type="submit"],
+      button[type="reset"] {
+        width:100%;
+      }
+
+      .declaration-section {
+        padding:20px;
+      }
+
+      .declaration-item {
+        padding-bottom:15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Header -->
+<header class="top-header">
+  <div class="container header-content">
+    <div class="branding">
+      <img src="emblem.jpg" alt="Malawi Emblem">
+      <div>
+        <h1>National Archives of Malawi</h1>
+      </div>
+    </div>
+  </div>
+  <!-- Navigation -->
+  <nav class="main-nav" aria-label="Primary navigation">
+    <div class="container nav-list">
+      <a href="overview.html">Overview</a>
+      <a href="biblio_preface.html">Preface</a>
+      <a href="laws.html">Laws</a>
+      <a href="rules.html">Rules</a>
+      <a href="information.html">Information</a>
+      <a href="application.html">Application</a>
+      <a href="biblio-contents.html">Bibliography</a>
+      <a href="staff.html">Contacts</a>
+      <a href="index.html">Home</a>
+    </div>
+  </nav>
+<main>
+</header>
+</header>
+
+<!-- Announcement Banner -->
+<section class="announcement">
+  <div class="container">
+    <p>National Archives of Malawi — Safeguarding the Nation's Memory</p>
+  </div>
+</section>
+
+<!-- Application Form Container -->
+<div class="application-container">
+
+  <!-- Form Header -->
+  <section class="form-header">
+    <h2><i class="fas fa-file-alt"></i> Application for Admission</h2>
+    <p>Ticket of Admission to Search Room</p>
+  </section>
+
+  <div class="notice-box">
+    <strong><i class="fas fa-info-circle"></i> Please Read Carefully</strong>
+    Before submitting your application, ensure you have reviewed the <a href="search.html" style="color:var(--primary); font-weight:600;">Search Room Rules and Regulations</a>. All applicants must comply with the terms and conditions outlined therein.
+  </div>
+
+  <!-- Main Application Form -->
+  <form method="POST" action="--WEBBOT-SELF--">
+
+    <!-- Personal Information Section -->
+    <section class="form-section">
+      <h3>
+        <div class="section-number">1</div>
+        Personal Information
+      </h3>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="surname">Surname <span class="required">*</span></label>
+          <input type="text" id="surname" name="surname" required>
+        </div>
+        <div class="form-group">
+          <label for="firstname">First Name <span class="required">*</span></label>
+          <input type="text" id="firstname" name="firstname" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="othernames">Other Names</label>
+        <input type="text" id="othernames" name="othernames">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nationality">Nationality <span class="required">*</span></label>
+          <input type="text" id="nationality" name="nationality" required>
+        </div>
+        <div class="form-group">
+          <label for="passport">Passport Number <span class="required">*</span></label>
+          <input type="text" id="passport" name="passport" required>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section class="form-section">
+      <h3>
+        <div class="section-number">2</div>
+        Contact Information
+      </h3>
+
+      <div class="form-group">
+        <label for="localaddr">Local Address in Malawi <span class="required">*</span></label>
+        <textarea id="localaddr" name="localaddr" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="permanentaddr">Permanent Address <span class="required">*</span></label>
+        <textarea id="permanentaddr" name="permanentaddr" required></textarea>
+      </div>
+    </section>
+
+    <!-- Professional Information Section -->
+    <section class="form-section">
+      <h3>
+        <div class="section-number">3</div>
+        Professional & Institutional Information
+      </h3>
+
+      <div class="form-group">
+        <label for="institution">Name and Address of Institution or Organization to which you are attached</label>
+        <textarea id="institution" name="institution"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="reference">Name and Address of Person in Malawi to whom reference may be made <span class="required">*</span></label>
+        <textarea id="reference" name="reference" required></textarea>
+      </div>
+    </section>
+
+    <!-- Research Information Section -->
+    <section class="form-section">
+      <h3>
+        <div class="section-number">4</div>
+        Research Project Details
+      </h3>
+
+      <div class="form-group">
+        <label for="researchnature">Nature and Purpose of Research Project <span class="required">*</span></label>
+        <div class="form-instructions">
+          Please provide details of the scope and period of your research, including any specific archives, records, or topics you intend to access.
+        </div>
+        <textarea id="researchnature" name="researchnature" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="projectpurpose">Purpose of Project <span class="required">*</span></label>
+        <select id="projectpurpose" name="projectpurpose" required>
+          <option value="">-- Select Purpose --</option>
+          <option value="ma">Master's Thesis (M.A.)</option>
+          <option value="phd">Doctoral Thesis (Ph.D.)</option>
+          <option value="book">Book</option>
+          <option value="article">Article</option>
+          <option value="research">Academic Research</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="duration">Expected Duration of Research in the National Archives <span class="required">*</span></label>
+        <textarea id="duration" name="duration" placeholder="e.g., 3 months, 6 months, 1 year" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="expiredate">Access Documents up to Year <span class="required">*</span></label>
+        <input type="text" id="expiredate" name="expiredate" placeholder="e.g., 1990" required>
+      </div>
+    </section>
+
+    <!-- Declaration Section -->
+    <section class="form-section">
+      <h3><i class="fas fa-feather-alt"></i> Declaration</h3>
+
+      <div class="declaration-section">
+        <h4>Terms and Conditions</h4>
+
+        <div class="declaration-item">
+          <strong>1. Government Approval Requirement</strong>
+          <p>I understand that I have been granted access to archives and records in the custody of the Archivist for Malawi, strictly on the condition that the final draft of any written materials I produce which contains information derived from any of these documents must be submitted to the Malawi Government for approval before publication.</p>
+        </div>
+
+        <div class="declaration-item">
+          <strong>2. Confidentiality and Restricted Disclosure</strong>
+          <p>I understand that I must not divulge any information gained from official documents to any unauthorized person, orally or in writing, without the previous sanction of the Malawi Government. I understand that these provisions apply not only for the period during which I am allowed access to official documents but also afterwards.</p>
+        </div>
+
+        <div class="declaration-item">
+          <strong>3. Compliance with Rules and Regulations</strong>
+          <p>I undertake to abide by the rules and regulations of the National Archives as outlined in the Search Room Guidelines.</p>
+        </div>
+
+        <div class="declaration-item">
+          <strong>4. Submission of Completed Work</strong>
+          <p>I shall cause to be delivered, at my own expense, one copy of any work which may result from my research, to the Archivist for Malawi within two months of the date of completion.</p>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-top:30px;">
+        <input type="checkbox" id="agree" name="agree" required style="width:auto; margin-right:10px;">
+        <label for="agree" style="display:inline; margin:0;">I have read and agree to the terms and conditions outlined above <span class="required">*</span></label>
+      </div>
+    </section>
+
+    <!-- Submission Section -->
+    <section class="form-section">
+      <h3><i class="fas fa-clipboard-check"></i> Submission</h3>
+
+      <div class="form-group">
+        <label for="date">Date of Application <span class="required">*</span></label>
+        <input type="date" id="date" name="date" required>
+      </div>
+
+      <div class="form-buttons">
+        <button type="submit"><i class="fas fa-check"></i> Submit Application</button>
+        <button type="reset"><i class="fas fa-redo"></i> Clear Form</button>
+      </div>
+    </section>
+
+  </form>
+
+  <!-- Help Text -->
+  <div style="background:var(--light); padding:25px; border-radius:10px; margin:30px 0; text-align:center;">
+    <p style="color:var(--muted); margin:0;">
+      <strong>Questions?</strong> Please contact the National Archives at <a href="mailto:archives@sdnp.org.mw" style="color:var(--primary); font-weight:600;">archives@sdnp.org.mw</a> or visit us in person for assistance.
+    </p>
+  </div>
+
+</div>
+
+<!-- Footer -->
+</main>
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-section">
+      <h3><i class="fas fa-archive"></i> About</h3>
+      <p>The National Archives of Malawi preserves and provides access to the nation's documentary heritage, safeguarding records of historical, administrative, and cultural significance.</p>
+    </div>
+
+    <div class="footer-section">
+      <h3><i class="fas fa-link"></i> Quick Links</h3>
+      <ul>
+        <li><a href="overview.html"><i class="fas fa-arrow-right"></i> Overview</a></li>
+        <li><a href="information.html"><i class="fas fa-arrow-right"></i> Information</a></li>
+        <li><a href="application.html"><i class="fas fa-arrow-right"></i> Apply for Access</a></li>
+        <li><a href="search.html"><i class="fas fa-arrow-right"></i> Search Room Rules</a></li>
+        <li><a href="staff.html"><i class="fas fa-arrow-right"></i> Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3><i class="fas fa-book"></i> Resources</h3>
+      <ul>
+        <li><a href="biblio_preface.html"><i class="fas fa-arrow-right"></i> Bibliography Preface</a></li>
+        <li><a href="biblio-contents.html"><i class="fas fa-arrow-right"></i> Bibliography Contents</a></li>
+        <li><a href="laws.html"><i class="fas fa-arrow-right"></i> Legislation</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3><i class="fas fa-phone"></i> Contact</h3>
+      <div class="footer-contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>P.O. Box 62<br>Zomba, Malawi</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-phone"></i>
+        <span>+265 525 240<br>+265 524 148</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:archives@sdnp.org.mw">archives@sdnp.org.mw</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <div class="footer-bottom">
+    <p>© 2025 National Archives of Malawi. All Rights Reserved.</p>
+    <div class="social-links">
+      <a href="#"><i class="fas fa-facebook"></i></a>
+      <a href="#"><i class="fas fa-twitter"></i></a>
+      <a href="#"><i class="fas fa-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
