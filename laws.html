@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laws of Malawi - National Archives of Malawi</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="archives-styles.css">
+  <style>
+    /* Laws Page Specific Styles */
+    .laws-container {
+      max-width:1000px;
+      margin:60px auto;
+      padding:0 40px;
+    }
+
+    .laws-header {
+      background:var(--white);
+      padding:50px;
+      margin-bottom:40px;
+      border-radius:12px;
+      box-shadow:0 4px 16px rgba(0,0,0,0.08);
+      border-left:6px solid var(--accent);
+      text-align:center;
+    }
+
+    .laws-header h2 {
+      color:var(--primary);
+      font-size:2.4rem;
+      margin:0 0 20px 0;
+      font-weight:800;
+    }
+
+    .laws-header p {
+      color:var(--muted);
+      font-size:1.1rem;
+      margin:0;
+    }
+
+    .act-section {
+      background:var(--white);
+      padding:40px;
+      margin-bottom:30px;
+      border-radius:12px;
+      box-shadow:0 4px 16px rgba(0,0,0,0.08);
+      border-left:6px solid var(--accent);
+    }
+
+    .act-section h3 {
+      color:var(--primary);
+      font-size:1.6rem;
+      margin-top:0;
+      margin-bottom:20px;
+      font-weight:800;
+    }
+
+    .section-content {
+      color:var(--dark);
+      line-height:1.9;
+      font-size:1.05rem;
+    }
+
+    .section-content p {
+      margin-bottom:15px;
+      text-align:justify;
+    }
+
+    .section-content p:last-child {
+      margin-bottom:0;
+    }
+
+    .toc-list {
+      list-style:none;
+      padding:0;
+      margin:20px 0;
+    }
+
+    .toc-list li {
+      padding:12px 15px;
+      margin-bottom:8px;
+      background:var(--light);
+      border-left:4px solid var(--accent);
+      border-radius:4px;
+      color:var(--dark);
+      line-height:1.6;
+    }
+
+    .toc-list li strong {
+      color:var(--primary);
+    }
+
+    .section-number {
+      display:inline-block;
+      background:linear-gradient(135deg,var(--primary),#163a22);
+      color:var(--white);
+      padding:8px 16px;
+      border-radius:6px;
+      font-weight:700;
+      margin-right:12px;
+      margin-bottom:15px;
+    }
+
+    .subsection {
+      margin:20px 0 20px 30px;
+      padding:15px;
+      background:rgba(212,175,55,0.05);
+      border-left:4px solid var(--accent);
+      border-radius:6px;
+    }
+
+    .subsection p {
+      margin:10px 0;
+      color:var(--dark);
+      line-height:1.8;
+      font-size:1rem;
+    }
+
+    .subsection ol {
+      margin:15px 0;
+      padding-left:25px;
+    }
+
+    .subsection li {
+      margin-bottom:10px;
+      color:var(--dark);
+      line-height:1.7;
+    }
+
+    .subsidiary-section {
+      background:linear-gradient(135deg,rgba(31,77,43,0.05),rgba(212,175,55,0.05));
+      border:2px solid var(--accent);
+      padding:30px;
+      border-radius:10px;
+      margin:30px 0;
+    }
+
+    .subsidiary-section h4 {
+      color:var(--primary);
+      font-size:1.3rem;
+      margin-top:0;
+      font-weight:800;
+      border-bottom:3px solid var(--accent);
+      padding-bottom:15px;
+    }
+
+    .info-box {
+      background:linear-gradient(135deg,rgba(212,175,55,0.1),rgba(31,77,43,0.05));
+      padding:25px;
+      border-radius:10px;
+      border-left:5px solid var(--accent);
+      margin:20px 0;
+    }
+
+    .info-box strong {
+      color:var(--primary);
+    }
+
+    @media(max-width:768px) {
+      .laws-container {
+        padding:0 20px;
+        margin:40px auto;
+      }
+
+      .act-section {
+        padding:25px;
+      }
+
+      .laws-header h2 {
+        font-size:1.8rem;
+      }
+
+      .section-content p {
+        text-align:left;
+      }
+
+      .subsection {
+        margin-left:15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Header -->
+<header class="top-header">
+  <div class="container header-content">
+    <div class="branding">
+      <img src="emblem.jpg" alt="Malawi Emblem"> 
+      <div>
+        <h1>National Archives of Malawi</h1>
+      </div>
+    </div>
+  </div>
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="container">
+      <a href="index.html">Home</a>
+      <a href="overview.html">Overview</a>
+      <a href="biblio_preface.html">Preface</a>
+      <a href="laws.html">Laws</a>
+      <a href="search.html">Rules</a>
+      <a href="information.html">Information</a>
+      <a href="application.html">Application</a>
+      <a href="biblio-contents.html">Bibliography</a>
+      <a href="staff.html">Contacts</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Announcement Banner -->
+<section class="announcement">
+  <div class="container">
+    <p>National Archives of Malawi — Safeguarding the Nation's Memory</p>
+  </div>
+</section>
+
+<!-- Laws Content -->
+<div class="laws-container">
+
+  <!-- Header Section -->
+  <section class="laws-header">
+    <h2><i class="fas fa-gavel"></i> Laws of Malawi</h2>
+    <p>Printed Publications Act & Related Legislation</p>
+  </section>
+
+  <!-- Printed Publications Act Section -->
+  <section class="act-section">
+    <h3>Printed Publications Act (Chapter 19:01)</h3>
+    
+    <div class="info-box">
+      <strong>Effective Date:</strong> 1st March, 1948<br>
+      <strong>Purpose:</strong> To make provision for the registration of newspapers, the printing and publication of books, and the preservation of printed works published in Malawi.
+    </div>
+
+    <h4 style="color:var(--primary); margin-top:30px; font-weight:700;">Arrangement of Sections</h4>
+    <ul class="toc-list">
+      <li><strong>Section 1:</strong> Short title</li>
+      <li><strong>Section 2:</strong> Interpretation</li>
+      <li><strong>Section 3:</strong> Particulars to be contained in books</li>
+      <li><strong>Section 4:</strong> Delivery of books published in Malawi to the Government Archivist</li>
+      <li><strong>Section 5:</strong> Registration of newspapers</li>
+      <li><strong>Section 6:</strong> Certified extracts from register to be received in evidence</li>
+    </ul>
+
+    <!-- Section 1 -->
+    <div class="section-content" style="margin-top:30px;">
+      <div class="section-number">Section 1</div>
+      <p>This Act may be cited as the <strong>Printed Publications Act</strong>.</p>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section-content" style="margin-top:30px;">
+      <div class="section-number">Section 2</div>
+      <p style="margin-bottom:20px;">In this Act, unless the context otherwise requires:</p>
+      
+      <div class="subsection">
+        <p><strong>"Book"</strong> includes every part or division of a book, pamphlet, newspaper, sheet of letterpress, sheet of music, map, plan, chart or table separately published.</p>
+        
+        <p><strong>"Editor"</strong> includes the person or persons actually responsible for the collation or inclusion in any newspaper of the contents thereof, whether such person or persons are expressly employed for such purposes or not.</p>
+        
+        <p><strong>"Newspaper"</strong> means any periodical publication published at intervals of not more than one month and consisting wholly, or for the greater part, of political or other news or of articles relating thereto or to other current topics, with or without advertisements, and with or without illustrations, but shall not include any publication which is proved not to be intended for public sale or public dissemination.</p>
+        
+        <p>Expressions referring to printing shall be construed as including references to any other means of representing or reproducing words in visible form by impressing one material on another.</p>
+      </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section-content" style="margin-top:30px;">
+      <div class="section-number">Section 3</div>
+      <p style="margin-bottom:20px;"><strong>Particulars to be Contained in Books</strong></p>
+      
+      <div class="subsection">
+        <p><strong>(1)</strong> Every book printed and published in Malawi shall bear an imprint in legible type showing:</p>
+        <ol style="margin:15px 0; padding-left:30px;">
+          <li>The full and correct name of the printer and the place where the book was printed</li>
+          <li>The full and correct name of the publisher and his place of business</li>
+          <li>The year of publication</li>
+        </ol>
+        
+        <p style="margin-top:15px;"><strong>(2)</strong> Any person who knowingly and willfully prints or publishes or causes to be printed or published any book not containing the particulars required by this section shall be liable to a fine of £100.</p>
+        
+        <p><strong>(3)</strong> The Minister may make Rules excepting from this section such classes of printed matter used for the purposes of the Government, of courts of justice, of public authorities and of trade and business as may be specified in such Rules.</p>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section-content" style="margin-top:30px;">
+      <div class="section-number">Section 4</div>
+      <p style="margin-bottom:20px;"><strong>Delivery of Books to the Government Archivist</strong></p>
+      
+      <div class="subsection">
+        <p><strong>(1)</strong> The publisher of every book published in Malawi shall, within two months of the publication, deliver at his own expense a copy of the book to the Government Archivist, who shall give a written receipt for every copy received by him.</p>
+        
+        <p><strong>(2)</strong> Every copy delivered under the provisions of this section shall be a copy of the whole book with all maps and illustrations belonging thereto, finished and coloured in the same manner as the best copies of the book are published, and shall be bound, sewed or stitched together, and on the best paper on which the book is printed.</p>
+        
+        <p><strong>(3)</strong> If any publisher fails to comply with this section, he shall be liable to a fine of £20. When any person is convicted of such offence, the court may, in addition to imposing a penalty, order the person so convicted to comply with this section by delivering a copy of the book to the authority to whom delivery ought to have been made. The court may, instead of making the said order, impose a further fine not exceeding the amount of the published price of the book.</p>
+        
+        <p><strong>(4)</strong> This section shall not apply to any second or subsequent edition of a book unless such edition contains additions or alterations either in the letterpress or in the maps, prints or other illustrative material belonging thereto.</p>
+        
+        <p><strong>(5)</strong> The Minister may make Rules excepting from this section publications wholly or mainly in the nature of trade advertisements or such classes of such other publications as may be specified in the Rules.</p>
+      </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section-content" style="margin-top:30px;">
+      <div class="section-number">Section 5</div>
+      <p style="margin-bottom:20px;"><strong>Registration of Newspapers</strong></p>
+      
+      <div class="subsection">
+        <p><strong>(1)</strong> No person shall print or publish or cause to be printed or published any newspaper until there has been registered in the office of the Government Archivist the full and correct title thereof and the full and correct names and places of abode of every person who is or is intended to be the proprietor, editor, printer or publisher of such newspaper, and the description of the premises where the same is to be published. Every alteration in the aforesaid particulars shall forthwith be registered in like manner.</p>
+        
+        <p><strong>(2)</strong> Any person who contravenes this section shall be liable to a fine of £100.</p>
+      </div>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="section-content" style="margin-top:30px;">
+      <div class="section-number">Section 6</div>
+      <p style="margin-bottom:20px;"><strong>Certified Extracts from Register</strong></p>
+      
+      <div class="subsection">
+        <p><strong>(1)</strong> It shall be the duty of the Government Archivist to keep a register in which shall be entered the particulars mentioned in the preceding section.</p>
+        
+        <p><strong>(2)</strong> Any person wishing to obtain an extract from such register signed by the Government Archivist showing the particulars therein contained in regard to any newspaper, shall be entitled to obtain the same on application to the Government Archivist and on payment of a fee of two shillings and sixpence for every such extract.</p>
+        
+        <p><strong>(3)</strong> The production of any such extract, signed as aforesaid, in any proceedings, civil or criminal, in any court of justice shall be sufficient proof of the facts therein stated in regard to the names of the proprietors, editors, printers and publishers of the newspaper therein named.</p>
+        
+        <p><strong>(4)</strong> At the trial of any person for an offence against section 4(3) or section 5(2), any document purporting to be a certificate under the hand of the Government Archivist that such person has failed to comply with the requirements of the subsection under which such person is charged may be used in evidence against him. When any certificate is so used, the court may, if it thinks fit, summon and examine the Government Archivist as to the subject matter thereof.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Subsidiary Legislation -->
+  <section class="subsidiary-section">
+    <h4><i class="fas fa-file-contract"></i> Subsidiary Legislation</h4>
+    <p style="color:var(--dark); line-height:1.8; margin-bottom:20px;">Printed Publications Rules</p>
+
+    <div class="act-section" style="margin-top:20px; border-left-color:var(--secondary);">
+      <div class="section-number" style="background:linear-gradient(135deg,var(--secondary),#9d6d42);">Rule 1</div>
+      <p>These Rules may be cited as the <strong>Printed Publications Rules</strong>.</p>
+    </div>
+
+    <div class="act-section" style="border-left-color:var(--secondary);">
+      <div class="section-number" style="background:linear-gradient(135deg,var(--secondary),#9d6d42);">Rule 2</div>
+      <p style="margin-bottom:20px;"><strong>Exceptions from Section 4 of the Act</strong></p>
+      
+      <p style="margin-bottom:15px;">The following publications or classes of publications shall be excepted from section 4 of the Act:</p>
+      
+      <div class="subsection">
+        <ol style="margin:0; padding-left:30px;">
+          <li style="margin-bottom:12px;">Publications wholly in the nature of trade advertisements, cards, catalogues, circulars, coupons, designs, forms, labels, leaflets, plans, posters, price lists, prospectuses, show cards, wrappers and similar publications purely in the nature of trade advertisements</li>
+          
+          <li style="margin-bottom:12px;">Publications wholly in the nature of time tables or rate tariffs of transport services</li>
+          
+          <li style="margin-bottom:12px;">Publications wholly in the nature of calendars</li>
+          
+          <li style="margin-bottom:12px;">Publications wholly in the nature of blank forms of accounts or blank forms of receipts, or other blank forms of a similar character</li>
+          
+          <li>Wall sheets printed with alphabets, mottoes, religious texts or other matter for the purpose of elementary instruction</li>
+        </ol>
+      </div>
+    </div>
+
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-section">
+      <h3><i class="fas fa-archive"></i> About</h3>
+      <p style="color:#e5e7eb; font-size:0.95rem; line-height:1.7;">The National Archives of Malawi preserves and provides access to the nation's documentary heritage, safeguarding records of historical, administrative, and cultural significance.</p>
+    </div>
+
+    <div class="footer-section">
+      <h3><i class="fas fa-link"></i> Quick Links</h3>
+      <ul>
+        <li><a href="overview.html"><i class="fas fa-arrow-right"></i> Overview</a></li>
+        <li><a href="information.html"><i class="fas fa-arrow-right"></i> Information</a></li>
+        <li><a href="application.html"><i class="fas fa-arrow-right"></i> Apply for Access</a></li>
+        <li><a href="search.html"><i class="fas fa-arrow-right"></i> Search Room Rules</a></li>
+        <li><a href="staff.html"><i class="fas fa-arrow-right"></i> Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3><i class="fas fa-book"></i> Resources</h3>
+      <ul>
+        <li><a href="biblio_preface.html"><i class="fas fa-arrow-right"></i> Bibliography Preface</a></li>
+        <li><a href="biblio-contents.html"><i class="fas fa-arrow-right"></i> Bibliography Contents</a></li>
+        <li><a href="laws.html"><i class="fas fa-arrow-right"></i> Legislation</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3><i class="fas fa-phone"></i> Contact</h3>
+      <div class="footer-contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>P.O. Box 62<br>Zomba, Malawi</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-phone"></i>
+        <span>+265 525 240<br>+265 524 148</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:archives@sdnp.org.mw">archives@sdnp.org.mw</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <div class="footer-bottom">
+    <p style="margin:0;">© 2001 National Archives of Malawi. All Rights Reserved.</p>
+    <div style="display:flex; gap:20px;">
+      <a href="#"><i class="fas fa-facebook"></i></a>
+      <a href="#"><i class="fas fa-twitter"></i></a>
+      <a href="#"><i class="fas fa-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

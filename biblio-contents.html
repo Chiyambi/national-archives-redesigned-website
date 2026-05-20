@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bibliography Contents - National Archives of Malawi</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="archives-styles.css">
+  <style>
+    /* Bibliography Contents Page Styles */
+    .biblio-container {
+      max-width:1000px;
+      margin:60px auto;
+      padding:0 40px;
+    }
+
+    .biblio-header {
+      background:var(--white);
+      padding:50px;
+      margin-bottom:40px;
+      border-radius:12px;
+      box-shadow:0 4px 16px rgba(0,0,0,0.08);
+      border-left:6px solid var(--accent);
+      text-align:center;
+    }
+
+    .biblio-header h2 {
+      color:var(--primary);
+      font-size:2.4rem;
+      margin:0 0 15px 0;
+      font-weight:800;
+    }
+
+    .biblio-header p {
+      color:var(--muted);
+      font-size:1.05rem;
+      margin:0;
+    }
+
+    .biblio-section {
+      background:var(--white);
+      padding:40px;
+      margin-bottom:30px;
+      border-radius:12px;
+      box-shadow:0 4px 16px rgba(0,0,0,0.08);
+      border-left:6px solid var(--accent);
+    }
+
+    .biblio-section h3 {
+      color:var(--primary);
+      font-size:1.5rem;
+      margin-top:0;
+      margin-bottom:25px;
+      font-weight:800;
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .ddc-grid {
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:15px;
+    }
+
+    .ddc-item {
+      background:var(--light);
+      padding:15px;
+      border-radius:10px;
+      border-left:4px solid var(--accent);
+      transition:all 0.3s ease;
+    }
+
+    .ddc-item:hover {
+      background:var(--white);
+      box-shadow:0 4px 12px rgba(212,175,55,0.2);
+      transform:translateX(5px);
+    }
+
+    .ddc-code {
+      background:linear-gradient(135deg,var(--primary),#163a22);
+      color:var(--white);
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:6px;
+      font-weight:700;
+      font-size:0.85rem;
+      margin-bottom:8px;
+    }
+
+    .ddc-title {
+      color:var(--dark);
+      font-weight:600;
+      text-decoration:none;
+      transition:color 0.3s ease;
+      display:block;
+      margin-bottom:5px;
+    }
+
+    .ddc-item a:hover .ddc-title {
+      color:var(--accent);
+    }
+
+    .ddc-description {
+      color:var(--muted);
+      font-size:0.9rem;
+      font-style:italic;
+    }
+
+    .ddc-category-section {
+      background:linear-gradient(135deg,rgba(31,77,43,0.05),rgba(212,175,55,0.05));
+      border:2px solid var(--accent);
+      padding:30px;
+      border-radius:10px;
+      margin:30px 0;
+    }
+
+    .ddc-category-section h4 {
+      color:var(--primary);
+      font-size:1.3rem;
+      margin-top:0;
+      margin-bottom:20px;
+      font-weight:800;
+      border-bottom:3px solid var(--accent);
+      padding-bottom:10px;
+    }
+
+    .special-section {
+      background:linear-gradient(135deg,rgba(212,175,55,0.1),rgba(31,77,43,0.05));
+      padding:20px;
+      border-radius:10px;
+      border-left:4px solid var(--accent);
+      margin-bottom:12px;
+    }
+
+    .special-section a {
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:600;
+      transition:color 0.3s ease;
+    }
+
+    .special-section a:hover {
+      color:var(--accent);
+      text-decoration:underline;
+    }
+
+    .legend-box {
+      background:var(--light);
+      padding:25px;
+      border-radius:10px;
+      border-left:4px solid var(--accent);
+      margin-bottom:30px;
+    }
+
+    .legend-box h4 {
+      color:var(--primary);
+      margin-top:0;
+      font-weight:800;
+    }
+
+    .legend-box p {
+      color:var(--dark);
+      line-height:1.7;
+      margin:10px 0;
+    }
+
+    .about-ddc {
+      background:linear-gradient(135deg,rgba(212,175,55,0.1),rgba(31,77,43,0.05));
+      padding:30px;
+      border-radius:10px;
+      border-left:5px solid var(--secondary);
+      margin:30px 0;
+    }
+
+    .about-ddc h4 {
+      color:var(--primary);
+      font-weight:800;
+      margin-top:0;
+    }
+
+    .about-ddc p {
+      color:var(--dark);
+      line-height:1.8;
+      margin:12px 0;
+    }
+
+    .breadcrumb-nav {
+      display:flex;
+      gap:10px;
+      margin-bottom:20px;
+      flex-wrap:wrap;
+    }
+
+    .breadcrumb-nav a {
+      background:var(--light);
+      padding:8px 15px;
+      border-radius:6px;
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:600;
+      font-size:0.9rem;
+      transition:all 0.3s ease;
+      border-left:3px solid var(--accent);
+    }
+
+    .breadcrumb-nav a:hover {
+      background:var(--white);
+      color:var(--accent);
+    }
+
+    @media(max-width:768px) {
+      .biblio-container {
+        padding:0 20px;
+        margin:40px auto;
+      }
+
+      .biblio-section {
+        padding:25px;
+      }
+
+      .biblio-header h2 {
+        font-size:1.8rem;
+      }
+
+      .ddc-grid {
+        grid-template-columns:1fr;
+        gap:12px;
+      }
+
+      .ddc-item {
+        padding:12px;
+      }
+
+      .breadcrumb-nav {
+        flex-direction:column;
+      }
+
+      .breadcrumb-nav a {
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Header -->
+<header class="top-header">
+  <div class="container header-content">
+    <div class="branding">
+      <img src="emblem.jpg" alt="Malawi Emblem">
+      <div>
+        <h1>National Archives of Malawi</h1>
+      </div>
+    </div>
+  </div>
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="container">
+      <a href="index.html">Home</a>
+      <a href="overview.html">Overview</a>
+      <a href="biblio_preface.html">Preface</a>
+      <a href="laws.html">Laws</a>
+      <a href="search.html">Rules</a>
+      <a href="information.html">Information</a>
+      <a href="application.html">Application</a>
+      <a href="biblio-contents.html">Bibliography</a>
+      <a href="staff.html">Contacts</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Announcement Banner -->
+<section class="announcement">
+  <div class="container">
+    <p>National Archives of Malawi — Safeguarding the Nation's Memory</p>
+  </div>
+</section>
+
+<!-- Bibliography Contents -->
+<div class="biblio-container">
+
+  <!-- Header Section -->
+  <section class="biblio-header">
+    <h2><i class="fas fa-list"></i> Bibliography Contents</h2>
+    <p>Dewey Decimal Classification System Index</p>
+  </section>
+
+  <!-- About DDC -->
+  <section class="biblio-section">
+    <h3><i class="fas fa-info-circle"></i> About This Bibliography</h3>
+    
+    <div class="about-ddc">
+      <h4>Dewey Decimal Classification System</h4>
+      <p>This bibliography is organized using the <strong>Dewey Decimal Classification (DDC)</strong> system, a widely recognized library classification system that organizes knowledge into 10 main categories, with further subdivisions.</p>
+      <p>The entries below represent Malawian publications and imprints covering the period 1991-1996, organized by subject matter and discipline. Click on any category to view the publications in that field.</p>
+    </div>
+  </section>
+
+  <!-- General Knowledge Section -->
+  <section class="biblio-section">
+    <h3><i class="fas fa-book"></i> General Knowledge (000-099)</h3>
+    
+    <div class="ddc-grid">
+      <a href="biblio-001.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">001</div>
+          <div class="ddc-title">Knowledge and Its Extension</div>
+          <div class="ddc-description">General intellectual pursuits, research, and knowledge systems</div>
+        </div>
+      </a>
+
+      <a href="biblio-010.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">010</div>
+          <div class="ddc-title">Bibliographies & Catalogues</div>
+          <div class="ddc-description">Library catalogues, indexes, and bibliographic references</div>
+        </div>
+      </a>
+
+      <a href="biblio-020.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">020</div>
+          <div class="ddc-title">Library & Information Science</div>
+          <div class="ddc-description">Librarianship, information management, and archival science</div>
+        </div>
+      </a>
+
+      <a href="biblio-060.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">060</div>
+          <div class="ddc-title">General Organizations</div>
+          <div class="ddc-description">Organizations, associations, and general institutions</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Religion & Philosophy Section -->
+  <section class="biblio-section">
+    <h3><i class="fas fa-cross"></i> Religion & Philosophy (200-299)</h3>
+    
+    <div class="ddc-grid">
+      <a href="biblio-200.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">200</div>
+          <div class="ddc-title">Religion</div>
+          <div class="ddc-description">General religious texts and studies</div>
+        </div>
+      </a>
+
+      <a href="biblio-220.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">220</div>
+          <div class="ddc-title">The Bible</div>
+          <div class="ddc-description">Biblical texts, interpretation, and studies</div>
+        </div>
+      </a>
+
+      <a href="biblio-230.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">230</div>
+          <div class="ddc-title">Christian Doctrinal Theology</div>
+          <div class="ddc-description">Christian doctrine and theological studies</div>
+        </div>
+      </a>
+
+      <a href="biblio-240.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">240</div>
+          <div class="ddc-title">Christian Moral & Devotional Theology</div>
+          <div class="ddc-description">Christian ethics, morality, and devotional literature</div>
+        </div>
+      </a>
+
+      <a href="biblio-250.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">250</div>
+          <div class="ddc-title">Local Christian & Religious Orders</div>
+          <div class="ddc-description">Local church practices and religious communities</div>
+        </div>
+      </a>
+
+      <a href="biblio-260.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">260</div>
+          <div class="ddc-title">Christian Social & Ecclesiastical Theology</div>
+          <div class="ddc-description">Church and society, ecclesiastical matters</div>
+        </div>
+      </a>
+
+      <a href="biblio-280.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">280</div>
+          <div class="ddc-title">Christian Denominations & Sects</div>
+          <div class="ddc-description">Specific Christian denominations and movements</div>
+        </div>
+      </a>
+
+      <a href="biblio-290.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">290</div>
+          <div class="ddc-title">Comparative Religion</div>
+          <div class="ddc-description">Religions other than Christianity and comparative studies</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Social Sciences Section -->
+  <section class="biblio-section">
+    <h3><i class="fas fa-users"></i> Social Sciences (300-399)</h3>
+    
+    <div class="ddc-grid">
+      <a href="biblio-300.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">300</div>
+          <div class="ddc-title">Social Sciences</div>
+          <div class="ddc-description">General social science works</div>
+        </div>
+      </a>
+
+      <a href="biblio-310.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">310</div>
+          <div class="ddc-title">Statistics</div>
+          <div class="ddc-description">Statistical data and demographic studies</div>
+        </div>
+      </a>
+
+      <a href="biblio-320.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">320</div>
+          <div class="ddc-title">Political Science</div>
+          <div class="ddc-description">Political systems, government, and politics</div>
+        </div>
+      </a>
+
+      <a href="biblio-330.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">330</div>
+          <div class="ddc-title">Economics</div>
+          <div class="ddc-description">Economic theory, practice, and systems</div>
+        </div>
+      </a>
+
+      <a href="biblio-340.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">340</div>
+          <div class="ddc-title">Law</div>
+          <div class="ddc-description">Legal systems, legislation, and jurisprudence</div>
+        </div>
+      </a>
+
+      <a href="biblio-350.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">350</div>
+          <div class="ddc-title">Public Administration</div>
+          <div class="ddc-description">Government administration and public services</div>
+        </div>
+      </a>
+
+      <a href="biblio-360.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">360</div>
+          <div class="ddc-title">Social Services & Associations</div>
+          <div class="ddc-description">Social welfare, associations, and community services</div>
+        </div>
+      </a>
+
+      <a href="biblio-370.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">370</div>
+          <div class="ddc-title">Education</div>
+          <div class="ddc-description">Educational systems, institutions, and practices</div>
+        </div>
+      </a>
+
+      <a href="biblio-380.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">380</div>
+          <div class="ddc-title">Commerce</div>
+          <div class="ddc-description">Trade, commerce, and business practices</div>
+        </div>
+      </a>
+
+      <a href="biblio-390.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">390</div>
+          <div class="ddc-title">Customs & Folklore</div>
+          <div class="ddc-description">Cultural customs, traditions, and folklore</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Languages & Literature Section -->
+  <section class="biblio-section">
+    <h3><i class="fas fa-language"></i> Languages & Literature (400-899)</h3>
+    
+    <div class="ddc-grid">
+      <a href="biblio-420.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">420</div>
+          <div class="ddc-title">English Language</div>
+          <div class="ddc-description">English language studies and literature</div>
+        </div>
+      </a>
+
+      <a href="biblio-490.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">490</div>
+          <div class="ddc-title">Other Languages</div>
+          <div class="ddc-description">Non-English language texts and studies</div>
+        </div>
+      </a>
+
+      <a href="biblio-500.html#500" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">500</div>
+          <div class="ddc-title">Natural Sciences</div>
+          <div class="ddc-description">General science and natural phenomena</div>
+        </div>
+      </a>
+
+      <a href="biblio-500.html#510" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">510</div>
+          <div class="ddc-title">Mathematics</div>
+          <div class="ddc-description">Mathematical theory and applications</div>
+        </div>
+      </a>
+
+      <a href="biblio-500.html#540" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">540</div>
+          <div class="ddc-title">Chemistry & Allied Sciences</div>
+          <div class="ddc-description">Chemical sciences and related fields</div>
+        </div>
+      </a>
+
+      <a href="biblio-500.html#550" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">550</div>
+          <div class="ddc-title">Earth & Other Worlds</div>
+          <div class="ddc-description">Geology, meteorology, and planetary science</div>
+        </div>
+      </a>
+
+      <a href="biblio-500.html#560" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">560</div>
+          <div class="ddc-title">Paleontology & Geology</div>
+          <div class="ddc-description">Fossils, geological history</div>
+        </div>
+      </a>
+
+      <a href="biblio-500.html#570" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">570</div>
+          <div class="ddc-title">Life Sciences</div>
+          <div class="ddc-description">Biology and biological sciences</div>
+        </div>
+      </a>
+
+      <a href="biblio-500.html#580" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">580</div>
+          <div class="ddc-title">Botanical Sciences</div>
+          <div class="ddc-description">Plants, botany, and plant sciences</div>
+        </div>
+      </a>
+
+      <a href="biblio-500.html#590" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">590</div>
+          <div class="ddc-title">Zoological Sciences</div>
+          <div class="ddc-description">Animals, zoology, and animal sciences</div>
+        </div>
+      </a>
+
+      <a href="biblio-800.html#800" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">800</div>
+          <div class="ddc-title">Literature & Rhetoric</div>
+          <div class="ddc-description">General literature and writing studies</div>
+        </div>
+      </a>
+
+      <a href="biblio-800.html#820" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">820</div>
+          <div class="ddc-title">English Literature</div>
+          <div class="ddc-description">Literature written in English</div>
+        </div>
+      </a>
+
+      <a href="biblio-800.html#890" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">890</div>
+          <div class="ddc-title">Literature in Other Languages</div>
+          <div class="ddc-description">Literature in languages other than English</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Technology & Applied Sciences Section -->
+  <section class="biblio-section">
+    <h3><i class="fas fa-cogs"></i> Technology & Applied Sciences (600-699)</h3>
+    
+    <div class="ddc-grid">
+      <a href="biblio-600.html" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">600</div>
+          <div class="ddc-title">Technology (Applied Sciences)</div>
+          <div class="ddc-description">General applied sciences and technology</div>
+        </div>
+      </a>
+
+      <a href="biblio-600.html#610" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">610</div>
+          <div class="ddc-title">Medical Sciences</div>
+          <div class="ddc-description">Medicine, health sciences, and healthcare</div>
+        </div>
+      </a>
+
+      <a href="biblio-600.html#620" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">620</div>
+          <div class="ddc-title">Engineering</div>
+          <div class="ddc-description">Engineering disciplines and technology</div>
+        </div>
+      </a>
+
+      <a href="biblio-600.html#630" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">630</div>
+          <div class="ddc-title">Agriculture & Related Technologies</div>
+          <div class="ddc-description">Farming, agriculture, and forestry</div>
+        </div>
+      </a>
+
+      <a href="biblio-600.html#640" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">640</div>
+          <div class="ddc-title">Domestic Arts & Sciences</div>
+          <div class="ddc-description">Home economics and domestic science</div>
+        </div>
+      </a>
+
+      <a href="biblio-600.html#650" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">650</div>
+          <div class="ddc-title">Management & Auxiliary Services</div>
+          <div class="ddc-description">Business management and services</div>
+        </div>
+      </a>
+
+      <a href="biblio-600.html#660" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">660</div>
+          <div class="ddc-title">Chemical Engineering & Technologies</div>
+          <div class="ddc-description">Chemical processing and technologies</div>
+        </div>
+      </a>
+
+      <a href="biblio-600.html#680" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">680</div>
+          <div class="ddc-title">Miscellaneous Manufactures</div>
+          <div class="ddc-description">Various manufacturing and production</div>
+        </div>
+      </a>
+
+      <a href="biblio-600.html#690" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">690</div>
+          <div class="ddc-title">Building & Construction</div>
+          <div class="ddc-description">Building, construction, and architecture</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Arts & Geography Section -->
+  <section class="biblio-section">
+    <h3><i class="fas fa-palette"></i> Arts & Geography (700-999)</h3>
+    
+    <div class="ddc-grid">
+      <a href="biblio-700.html#740" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">740</div>
+          <div class="ddc-title">Drawing & Decorative Arts</div>
+          <div class="ddc-description">Visual arts, drawing, and design</div>
+        </div>
+      </a>
+
+      <a href="biblio-700.html#780" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">780</div>
+          <div class="ddc-title">Music</div>
+          <div class="ddc-description">Music theory, composition, and performance</div>
+        </div>
+      </a>
+
+      <a href="biblio-700.html#790" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">790</div>
+          <div class="ddc-title">Recreational & Performing Arts</div>
+          <div class="ddc-description">Theater, dance, sports, and entertainment</div>
+        </div>
+      </a>
+
+      <a href="biblio-900.html#910" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">910</div>
+          <div class="ddc-title">Geography & Travel</div>
+          <div class="ddc-description">Geography, travel writing, and exploration</div>
+        </div>
+      </a>
+
+      <a href="biblio-900.html#920" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">920</div>
+          <div class="ddc-title">Biography & Genealogy</div>
+          <div class="ddc-description">Biographical works and family histories</div>
+        </div>
+      </a>
+
+      <a href="biblio-900.html#960" style="text-decoration:none;">
+        <div class="ddc-item">
+          <div class="ddc-code">960</div>
+          <div class="ddc-title">History of Africa</div>
+          <div class="ddc-description">African history and Malawian history</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Special Collections Section -->
+  <section class="biblio-section">
+    <h3><i class="fas fa-star"></i> Special Collections</h3>
+
+    <div class="special-section">
+      <a href="biblio-periodicals.html#First Issues">
+        <i class="fas fa-newspaper"></i> First Issues of Periodicals
+      </a>
+    </div>
+
+    <div class="special-section">
+      <a href="biblio-periodicals.html#Periodicals">
+        <i class="fas fa-list-ul"></i> Periodicals: Cessation and Changes
+      </a>
+    </div>
+
+    <div class="special-section">
+      <a href="biblio-directory.html">
+        <i class="fas fa-building"></i> Appendix I: Directory of Publishers
+      </a>
+    </div>
+  </section>
+
+  <!-- About National Archives -->
+  <section class="biblio-section" style="background:linear-gradient(135deg,rgba(212,175,55,0.1),rgba(31,77,43,0.05)); border-left-color:var(--secondary);">
+    <h3><i class="fas fa-archive"></i> About the National Archives</h3>
+
+    <p style="color:var(--dark); line-height:1.8;">This bibliography is maintained by the <strong>National Archives of Malawi Library</strong> in Zomba. All publishers in Malawi are required by the <a href="laws.html" style="color:var(--primary); font-weight:600;">Printed Publications Act</a> to deposit copies of their publications with the National Archives, ensuring a comprehensive record of Malawi's published heritage.</p>
+
+    <div style="background:var(--light); padding:20px; border-radius:10px; border-left:4px solid var(--accent); margin-top:20px;">
+      <p style="color:var(--muted); margin:0;">
+        <strong>For more information:</strong> Visit the <a href="biblio_preface.html" style="color:var(--primary); font-weight:600;">Bibliography Preface</a> for historical context and publication history.
+      </p>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-section">
+      <h3><i class="fas fa-archive"></i> About</h3>
+      <p style="color:#e5e7eb; font-size:0.95rem; line-height:1.7;">The National Archives of Malawi preserves and provides access to the nation's documentary heritage, safeguarding records of historical, administrative, and cultural significance.</p>
+    </div>
+
+    <div class="footer-section">
+      <h3><i class="fas fa-link"></i> Quick Links</h3>
+      <ul>
+        <li><a href="overview.html"><i class="fas fa-arrow-right"></i> Overview</a></li>
+        <li><a href="information.html"><i class="fas fa-arrow-right"></i> Information</a></li>
+        <li><a href="application.html"><i class="fas fa-arrow-right"></i> Apply for Access</a></li>
+        <li><a href="search.html"><i class="fas fa-arrow-right"></i> Search Room Rules</a></li>
+        <li><a href="staff.html"><i class="fas fa-arrow-right"></i> Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3><i class="fas fa-book"></i> Resources</h3>
+      <ul>
+        <li><a href="biblio_preface.html"><i class="fas fa-arrow-right"></i> Bibliography Preface</a></li>
+        <li><a href="biblio-contents.html"><i class="fas fa-arrow-right"></i> Bibliography Contents</a></li>
+        <li><a href="laws.html"><i class="fas fa-arrow-right"></i> Legislation</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3><i class="fas fa-phone"></i> Contact</h3>
+      <div class="footer-contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>P.O. Box 62<br>Zomba, Malawi</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-phone"></i>
+        <span>+265 525 240<br>+265 524 148</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:archives@sdnp.org.mw">archives@sdnp.org.mw</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <div class="footer-bottom">
+    <p style="margin:0;">© 2001 National Archives of Malawi. All Rights Reserved.</p>
+    <div style="display:flex; gap:20px;">
+      <a href="#"><i class="fas fa-facebook"></i></a>
+      <a href="#"><i class="fas fa-twitter"></i></a>
+      <a href="#"><i class="fas fa-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

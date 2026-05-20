@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bibliography Preface - National Archives of Malawi</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="archives-styles.css">
+  <style>
+    /* Bibliography Preface Page Styles */
+    .preface-container {
+      max-width:1000px;
+      margin:60px auto;
+      padding:0 40px;
+    }
+
+    .preface-header {
+      background:var(--white);
+      padding:50px;
+      margin-bottom:40px;
+      border-radius:12px;
+      box-shadow:0 4px 16px rgba(0,0,0,0.08);
+      border-left:6px solid var(--accent);
+      text-align:center;
+    }
+
+    .preface-header h2 {
+      color:var(--primary);
+      font-size:2.4rem;
+      margin:0 0 15px 0;
+      font-weight:800;
+    }
+
+    .preface-header p {
+      color:var(--muted);
+      font-size:1.05rem;
+      margin:0;
+    }
+
+    .preface-section {
+      background:var(--white);
+      padding:40px;
+      margin-bottom:30px;
+      border-radius:12px;
+      box-shadow:0 4px 16px rgba(0,0,0,0.08);
+      border-left:6px solid var(--accent);
+    }
+
+    .preface-content {
+      display:grid;
+      grid-template-columns:1fr 250px;
+      gap:30px;
+      align-items:start;
+    }
+
+    .preface-text {
+      color:var(--dark);
+      line-height:1.9;
+      font-size:1.05rem;
+    }
+
+    .preface-text p {
+      margin-bottom:20px;
+      text-align:justify;
+    }
+
+    .preface-text p:last-child {
+      margin-bottom:0;
+    }
+
+    .preface-image {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    .preface-image img {
+      width:100%;
+      max-width:220px;
+      border-radius:10px;
+      border:4px solid var(--accent);
+      box-shadow:0 8px 20px rgba(0,0,0,0.15);
+      margin-bottom:20px;
+    }
+
+    .author-info {
+      background:linear-gradient(135deg,rgba(31,77,43,0.05),rgba(212,175,55,0.05));
+      padding:20px;
+      border-radius:10px;
+      border-left:4px solid var(--accent);
+      text-align:center;
+      width:100%;
+    }
+
+    .author-name {
+      color:var(--primary);
+      font-weight:800;
+      font-size:1.1rem;
+      margin-bottom:5px;
+    }
+
+    .author-title {
+      color:var(--muted);
+      font-weight:600;
+      font-size:0.95rem;
+      margin-bottom:10px;
+    }
+
+    .author-date {
+      color:var(--secondary);
+      font-style:italic;
+      font-size:0.9rem;
+    }
+
+    .highlight-box {
+      background:linear-gradient(135deg,rgba(212,175,55,0.1),rgba(31,77,43,0.05));
+      padding:25px;
+      border-radius:10px;
+      border-left:5px solid var(--accent);
+      margin:30px 0;
+    }
+
+    .highlight-box h4 {
+      color:var(--primary);
+      font-weight:800;
+      margin-top:0;
+      margin-bottom:15px;
+    }
+
+    .highlight-box p {
+      color:var(--dark);
+      margin:0;
+      line-height:1.8;
+    }
+
+    .timeline {
+      background:var(--light);
+      padding:30px;
+      border-radius:10px;
+      margin:30px 0;
+    }
+
+    .timeline-title {
+      color:var(--primary);
+      font-size:1.2rem;
+      font-weight:800;
+      margin-bottom:20px;
+      border-bottom:3px solid var(--accent);
+      padding-bottom:10px;
+    }
+
+    .timeline-item {
+      padding:15px;
+      margin-bottom:12px;
+      background:var(--white);
+      border-left:4px solid var(--accent);
+      border-radius:6px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom:0;
+    }
+
+    .timeline-year {
+      color:var(--primary);
+      font-weight:800;
+      display:inline-block;
+      margin-right:15px;
+      min-width:80px;
+    }
+
+    .timeline-text {
+      color:var(--dark);
+      line-height:1.6;
+    }
+
+    @media(max-width:768px) {
+      .preface-container {
+        padding:0 20px;
+        margin:40px auto;
+      }
+
+      .preface-section {
+        padding:25px;
+      }
+
+      .preface-header h2 {
+        font-size:1.8rem;
+      }
+
+      .preface-content {
+        grid-template-columns:1fr;
+        gap:20px;
+      }
+
+      .preface-text p {
+        text-align:left;
+      }
+
+      .preface-image img {
+        max-width:180px;
+      }
+
+      .author-info {
+        padding:15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Header -->
+<header class="top-header">
+  <div class="container header-content">
+    <div class="branding">
+      <img src="emblem.jpg" alt="Malawi Emblem">
+      <div>
+        <h1>National Archives of Malawi</h1>
+      </div>
+    </div>
+  </div>
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="container">
+      <a href="index.html">Home</a>
+      <a href="overview.html">Overview</a>
+      <a href="biblio_preface.html">Preface</a>
+      <a href="laws.html">Laws</a>
+      <a href="search.html">Rules</a>
+      <a href="information.html">Information</a>
+      <a href="application.html">Application</a>
+      <a href="biblio-contents.html">Bibliography</a>
+      <a href="staff.html">Contacts</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Announcement Banner -->
+<section class="announcement">
+  <div class="container">
+    <p>National Archives of Malawi — Safeguarding the Nation's Memory</p>
+  </div>
+</section>
+
+<!-- Preface Content -->
+<div class="preface-container">
+
+  <!-- Header Section -->
+  <section class="preface-header">
+    <h2><i class="fas fa-book-open"></i> Bibliography Preface</h2>
+    <p>Malawi National Bibliography Overview and Historical Context</p>
+  </section>
+
+  <!-- Main Preface Section -->
+  <section class="preface-section">
+    <div class="preface-content">
+      <!-- Preface Text -->
+      <div class="preface-text">
+        <p>The first National Bibliography covering the two Rhodesias and Nyasaland was published in 1963 under the title <strong>"List of Publications Deposited in the Library of The National Archives"</strong> and it recorded the publications received in 1961. After the dissolution of the Central African Federation, the first Malawi National Bibliography, listing Malawian imprints only, appeared in 1965 and 1966 in mimeograph form under the title <strong>"List of Publications Deposited in the Library of the National Archives."</strong> The bibliography has since 1967 been produced annually or in cumulations of two to three years.</p>
+
+        <p>The last edition of the Malawi National Bibliography was the issue of 1994 which carried the issues of 1984 - 1990. This edition lists Malawian imprints covering the period 1991 - 1996. Although the bibliography is not fully comprehensive in coverage, it is hoped that it will still be a useful bibliographic tool to some African librarians.</p>
+
+        <p>The compiler of the bibliography would like to thank all publishers who complied with the requirement of the <strong>Printed Publications Act</strong> by depositing a copy of their publications in the National Archives Library which made it possible for the bibliography to be published.</p>
+      </div>
+
+      <!-- Author Information -->
+      <div class="preface-image">
+        <img src="ambali.jpg" alt="O. W. Ambali, Librarian">
+        <div class="author-info">
+          <div class="author-name">O. W. Ambali</div>
+          <div class="author-title">Librarian</div>
+          <div class="author-date">December 1998</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Historical Tribute -->
+    <div class="highlight-box" style="margin-top:40px;">
+      <h4><i class="fas fa-heart"></i> In Memoriam</h4>
+      <p>The Librarian regrets to announce the death of <strong>Mr. Dick D. Najira</strong> who passed away on <strong>5th May, 1996</strong> and has been the editor of the bibliography for the past 11 years. May his soul Rest In Peace.</p>
+    </div>
+  </section>
+
+  <!-- Bibliography Timeline -->
+  <section class="preface-section">
+    <h3 style="color:var(--primary); font-size:1.5rem; margin-top:0; font-weight:800;">Publication History</h3>
+    
+    <div class="timeline">
+      <div class="timeline-title"><i class="fas fa-history"></i> Malawi National Bibliography Timeline</div>
+      
+      <div class="timeline-item">
+        <span class="timeline-year">1963</span>
+        <span class="timeline-text">First National Bibliography covering the two Rhodesias and Nyasaland published, recording publications received in 1961</span>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-year">1965-1966</span>
+        <span class="timeline-text">First Malawi National Bibliography (post-Federation) appears in mimeograph form, listing Malawian imprints only</span>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-year">1967</span>
+        <span class="timeline-text">Bibliography production becomes regular, issued annually or in cumulations of two to three years</span>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-year">1994</span>
+        <span class="timeline-text">Last edition published, covering issues of 1984-1990</span>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-year">1998</span>
+        <span class="timeline-text">Current edition released, listing Malawian imprints covering the period 1991-1996</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- About the Printed Publications Act -->
+  <section class="preface-section">
+    <h3 style="color:var(--primary); font-size:1.5rem; margin-top:0; font-weight:800;"><i class="fas fa-gavel"></i> Legal Foundation</h3>
+    
+    <p style="color:var(--dark); line-height:1.8; margin-bottom:20px;">The Malawi National Bibliography is maintained under the authority of the <strong>Printed Publications Act</strong>, which requires publishers to deposit copies of their publications in the National Archives Library. This legal requirement ensures the comprehensive collection and preservation of Malawian imprints.</p>
+
+    <div class="highlight-box">
+      <h4>Key Provision</h4>
+      <p>All publishers in Malawi must, within two months of publication, deliver a copy of every printed work to the Government Archivist. This requirement ensures that the National Archives maintains a complete record of the nation's published heritage.</p>
+    </div>
+
+    <p style="color:var(--muted); font-size:0.95rem; margin-top:20px;">For more information about the Printed Publications Act and related legislation, please see the <a href="laws.html" style="color:var(--primary); font-weight:600;">Laws of Malawi</a> section.</p>
+  </section>
+
+  <!-- Purpose Statement -->
+  <section class="preface-section" style="background:linear-gradient(135deg,rgba(31,77,43,0.05),rgba(212,175,55,0.05)); border-left-color:var(--secondary);">
+    <h3 style="color:var(--primary); font-size:1.5rem; margin-top:0; font-weight:800;"><i class="fas fa-target"></i> Purpose and Scope</h3>
+    
+    <p style="color:var(--dark); line-height:1.8;">The Malawi National Bibliography serves as an essential bibliographic tool for:</p>
+    
+    <ul style="color:var(--dark); line-height:1.8; font-size:1rem;">
+      <li><strong>African Librarians</strong> — Providing access to Malawian publications and imprints</li>
+      <li><strong>Researchers and Scholars</strong> — Documenting the intellectual output of the nation</li>
+      <li><strong>Publishers and Authors</strong> — Recording and preserving published works</li>
+      <li><strong>National Heritage</strong> — Maintaining a comprehensive record of Malawi's publications</li>
+    </ul>
+
+    <p style="color:var(--muted); font-size:0.95rem; margin-top:20px; font-style:italic;">Although the bibliography is not fully comprehensive in coverage, it remains a valuable resource for understanding Malawi's literary and publishing heritage.</p>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-section">
+      <h3><i class="fas fa-archive"></i> About</h3>
+      <p style="color:#e5e7eb; font-size:0.95rem; line-height:1.7;">The National Archives of Malawi preserves and provides access to the nation's documentary heritage, safeguarding records of historical, administrative, and cultural significance.</p>
+    </div>
+
+    <div class="footer-section">
+      <h3><i class="fas fa-link"></i> Quick Links</h3>
+      <ul>
+        <li><a href="overview.html"><i class="fas fa-arrow-right"></i> Overview</a></li>
+        <li><a href="information.html"><i class="fas fa-arrow-right"></i> Information</a></li>
+        <li><a href="application.html"><i class="fas fa-arrow-right"></i> Apply for Access</a></li>
+        <li><a href="search.html"><i class="fas fa-arrow-right"></i> Search Room Rules</a></li>
+        <li><a href="staff.html"><i class="fas fa-arrow-right"></i> Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3><i class="fas fa-book"></i> Resources</h3>
+      <ul>
+        <li><a href="biblio_preface.html"><i class="fas fa-arrow-right"></i> Bibliography Preface</a></li>
+        <li><a href="biblio-contents.html"><i class="fas fa-arrow-right"></i> Bibliography Contents</a></li>
+        <li><a href="laws.html"><i class="fas fa-arrow-right"></i> Legislation</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3><i class="fas fa-phone"></i> Contact</h3>
+      <div class="footer-contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>P.O. Box 62<br>Zomba, Malawi</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-phone"></i>
+        <span>+265 525 240<br>+265 524 148</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:archives@sdnp.org.mw">archives@sdnp.org.mw</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <div class="footer-bottom">
+    <p style="margin:0;">© 2001 National Archives of Malawi. All Rights Reserved.</p>
+    <div style="display:flex; gap:20px;">
+      <a href="#"><i class="fas fa-facebook"></i></a>
+      <a href="#"><i class="fas fa-twitter"></i></a>
+      <a href="#"><i class="fas fa-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
